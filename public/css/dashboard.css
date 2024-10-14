@@ -1,0 +1,275 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: cursive;
+    background-color: #f5f6fa;
+    color: #333;
+}
+.logo h1 {
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 40px;
+}
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 250px;
+    background-color: #2c3e50;
+    color: #fff;
+    padding: 20px;
+    transition: width 0.3s ease;
+    z-index: 1000;
+    overflow: hidden;
+}
+
+.menu {
+    list-style: none;
+    padding: 0;
+}
+
+.menu a {
+    margin: 20px 0;
+    font-weight: 500;
+    font-size: larger;
+    cursor: pointer;
+    list-style: none;text-decoration: none;
+    color: #fff;
+}
+
+.menu a:hover {
+    color: #3498db;
+}
+
+/* Sidebar hidden state */
+.sidebar.closed {
+    transform: translateX(-100%);
+}
+
+/* Arrow to toggle sidebar */
+.toggle-sidebar {
+    position: absolute;
+    position: fixed;
+    top: 16rem;
+    left: 255px;
+    background-color: #2980b9;
+    padding: 10px;
+    /* border-radius: 50%; */
+    cursor: pointer;
+    transition: left 0.3s ease;
+}
+
+.toggle-sidebar i {
+    color: white;
+    font-size: 20px;
+}
+
+.container.sidebar-closed .toggle-sidebar {
+    left: 20px;
+}
+
+.container.sidebar-closed .main-content {
+    margin-left: 20px;
+}
+
+
+
+
+/* Main Content */
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #fff;
+    margin-left: 250px; /* To account for the fixed sidebar */
+    transition: margin-left 0.3s ease;
+}
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f7f9fc;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    /* width: 30%; */
+}
+
+.profile-summary {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.profile-pic {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+
+
+
+/* Account Overview Section */
+.section-title{
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+.account-overview {
+    margin-top: 20px;
+}
+
+.overview-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.overview-box {
+    background-color: #ecf0f1;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.overview-box h3 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.overview-box p {
+    font-size: 20px;
+    color: #2ecc71;
+    margin-bottom: 10px;
+}
+
+.fund-btn,
+.view-btn,
+.transaction-btn {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: cursive;
+}
+
+.fund-btn:hover,
+.view-btn:hover,
+.transaction-btn:hover {
+    background-color: #2980b9;
+}
+
+
+
+
+
+/* <!-- Social Media Boosting Services --> */
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.service-box {
+    background-color: #f7f9fc;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.service-icon {
+    font-size: 36px;
+    color: #3498db;
+    margin-bottom: 10px;
+}
+
+.service-box h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.service-box p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.service-btn {
+    background-color: #00b894;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: cursive;
+}
+
+.service-btn:hover {
+    background-color: #01916f;
+}
+
+
+
+
+
+
+
+
+/* Special Offers Section */
+.special-offers {
+    margin-top: 40px;
+}
+
+.offers-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.offer-box {
+    background-color: #fff3cd;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.offer-box h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.offer-box p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.offer-btn {
+    background-color: #e67e22;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: cursive;
+}
+
+.offer-btn:hover {
+    background-color: #d35400;
+}
+

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="/css/dashboard.css">
+</head>
+
+<body>
+
+
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="logo">
+                <h1>Bby_Lion</h1>
+            </div>
+            <div class="menu">  
+                
+                <a href="/">Logout</a> <!-- Add a logout link -->
+            </div>
+        </aside>
+
+        <!-- Arrow to toggle sidebar -->
+        <div class="toggle-sidebar" id="toggle-btn">
+            <i class="fa-solid fa-angle-left"></i>
+        </div>
+
+        <!-- Main content -->
+        <main class="main-content">
+            <header class="header">
+                <div class="profile-summary">
+                    <img src="/uploads/IMG-20240529-WA0122.jpg" alt="Profile" class="profile-pic">
+                    <div>
+                        <h2><%= username %></h2>
+                        <p><%= email %></p> 
+                    </div>
+                </div>
+            </header>
+
+            <!-- Account Overview Section -->
+            <section class="account-overview">
+                <h2 class="section-title">Account Overview</h2>
+                
+                <div class="overview-grid">
+                    <div class="overview-box">
+                        <h3>Current Balance</h3>
+                        <p>#10,500</p>
+                        <button class="fund-btn">Fund Account</button>
+                    </div>
+
+                    <div class="overview-box">
+                        <h3>Total Boosted Posts</h3>
+                        <p>45 posts</p>
+                        <button class="view-btn">View Boosts</button>
+                    </div>
+                    
+                    <div class="overview-box">
+                        <h3>Last Transaction</h3>
+                        <p>#2,000 on 10 Oct 2024</p>
+                        <button class="transaction-btn">View Transactions</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Social Media Boosting Services -->
+            <section class="boosting-services">
+                <h2 class="section-title">Social Media Boosting Services</h2>
+
+                <div class="service-grid">
+                    <div class="service-box">
+                        <i class="fa-solid fa-thumbs-up service-icon"></i>
+                        <h3>Likes Boost</h3>
+                        <p>Increase your likes on posts across various social media platforms.</p>
+                        <button class="service-btn">Boost Now</button>
+                    </div>
+
+                    <div class="service-box">
+                        <i class="fa-solid fa-share service-icon"></i>
+                        <h3>Shares Boost</h3>
+                        <p>Get more shares to extend your social media reach and visibility.</p>
+                        <button class="service-btn">Boost Now</button>
+                    </div>
+
+                    <div class="service-box">
+                        <i class="fa-solid fa-comments service-icon"></i>
+                        <h3>Comments Boost</h3>
+                        <p>Receive more comments to increase engagement on your posts.</p>
+                        <button class="service-btn">Boost Now</button>
+                    </div>
+
+                    <div class="service-box">
+                        <i class="fa-solid fa-users service-icon"></i>
+                        <h3>Followers Boost</h3>
+                        <p>Grow your followers to build a stronger social media presence.</p>
+                        <button class="service-btn">Boost Now</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Special Offers Section -->
+            <section class="special-offers">
+                <h2 class="section-title">Special Offers</h2>
+                <div class="offers-grid">
+                    <div class="offer-box">
+                        <h3>Offer 1: Get 20% Off Likes Boost</h3>
+                        <p>Boost your likes at a discounted price for a limited time only.</p>
+                        <button class="offer-btn">Claim Offer</button>
+                    </div>
+                    <div class="offer-box">
+                        <h3>Offer 2: Buy Followers, Get Free Shares</h3>
+                        <p>For every follower boost you purchase, get free shares on your posts.</p>
+                        <button class="offer-btn">Claim Offer</button>
+                    </div>
+                    <div class="offer-box">
+                        <h3>Offer 3: 50% Off on All Services</h3>
+                        <p>Enjoy half price on all social media boosting services for new users.</p>
+                        <button class="offer-btn">Claim Offer</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+    </div>
+
+
+
+
+
+
+    <script src="https://kit.fontawesome.com/b3fa93e021.js" crossorigin="anonymous"></script>
+    <script src="/js/dashboard.js"></script>
+</body>
+
+</html>
