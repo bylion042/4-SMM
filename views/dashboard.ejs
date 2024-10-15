@@ -4,23 +4,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Dashboard</title>
+    <title>New Order</title>
     <link rel="stylesheet" href="/css/dashboard.css">
 </head>
 
 <body>
 
 
+    
     <div class="container">
         <!-- Sidebar -->
         <aside class="sidebar" id="sidebar">
             <div class="logo">
                 <h1>Bby_Lion</h1>
             </div>
-            <div class="menu">  
-                
-                <a href="/">Logout</a> <!-- Add a logout link -->
+            <div class="menu">
+                <a href="/dashboard" class="on active"><i class="fa-solid fa-cart-shopping"></i>New order</a>
+                <a href="/dashbo" class="on"><i class="fa-solid fa-wallet"></i>Add funds</a>
+                <a href="#" class="on"><i class="fa-solid fa-bullhorn"></i>Updates</a>
+                <a href="#" class="on"><i class="fa-solid fa-taxi"></i>Services</a>
+                <a href="#" class="on"><i class="fa-solid fa-headset"></i>Place ads</a>
+                <a href="#" class="on"><i class="fa-solid fa-phone"></i>Contact us </a>
+                <a href="#" class="on"><i class="fa-solid fa-circle-exclamation"></i>Privacy Policy</a>
+                <a href="/" class="on"><i class="fa-solid fa-right-from-bracket"></i>Logout</a>
             </div>
+
+
+            <footer>
+                    <div class="footer-copyright">
+                        &copy; 2024 Your 4 ssm . All rights reserved.
+                    </div>
+            </footer>
         </aside>
 
         <!-- Arrow to toggle sidebar -->
@@ -34,71 +48,86 @@
                 <div class="profile-summary">
                     <img src="/uploads/IMG-20240529-WA0122.jpg" alt="Profile" class="profile-pic">
                     <div>
-                        <h2><%= username %></h2>
-                        <p><%= email %></p> 
+                        <h2>
+                            <%= username %>
+                        </h2>
+                        <p>
+                            <%= email %>
+                        </p>
                     </div>
                 </div>
             </header>
 
+
             <!-- Account Overview Section -->
             <section class="account-overview">
                 <h2 class="section-title">Account Overview</h2>
-                
+
                 <div class="overview-grid">
-                    <div class="overview-box">
-                        <h3>Current Balance</h3>
-                        <p>#10,500</p>
+                    <div class="overview-box1 active-1">
+                        <div class="active-2">
+                            <i class="fa-solid fa-wallet"></i>
+                            <div class="hold">
+                                <h3>Current Balance</h3>
+                                <p>0.00</p>
+                            </div>
+                        </div>
                         <button class="fund-btn">Fund Account</button>
                     </div>
 
                     <div class="overview-box">
-                        <h3>Total Boosted Posts</h3>
-                        <p>45 posts</p>
-                        <button class="view-btn">View Boosts</button>
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <div class="hold">
+                            <h3>Orders processed</h3>
+                            <p>50,935,318</p>
+                        </div>
                     </div>
-                    
+
                     <div class="overview-box">
-                        <h3>Last Transaction</h3>
-                        <p>#2,000 on 10 Oct 2024</p>
-                        <button class="transaction-btn">View Transactions</button>
+                        <i class="fa-solid fa-wifi"></i>
+                        <div class="hold">
+                            <h3>Stay Connected</h3>
+                            <p>Null</p>
+                        </div>
                     </div>
                 </div>
             </section>
 
             <!-- Social Media Boosting Services -->
-            <section class="boosting-services">
-                <h2 class="section-title">Social Media Boosting Services</h2>
+            <div class="social-network">
+                <div class="container">
+                    <h1>New Order</h1>
+                    <h2 class="section-title">Select a social network:</h2>
+                    <div class="grid">
+                        <div class="network facebook active"> <i class="fa-brands fa-facebook-f"></i> Facebook</div>
+                        <div class="network youtube"><i class="fa-brands fa-youtube"></i>YouTube</div>
+                        <div class="network tiktok"><i class="fa-brands fa-tiktok"></i>TikTok</div>
+                        <div class="network twitter"> <i class="fa-brands fa-twitter"></i>X / Twitter</div>
+                        <div class="network instagram"><i class="fa-brands fa-instagram"></i>Instagram</div>
+                        <div class="network everything"><i class="fa-regular fa-heart"></i>Everything</div>
+                        <div class="network telegram"><i class="fa-brands fa-telegram"></i>Telegram</div>
+                        <div class="network telegram-premium"> <i class="fa-brands fa-discord"></i>Discord</div>
+                        <div class="network telegram-premium"> <i class="fa-brands fa-reddit-alien"></i>Reddit</div>
+                        <!-- <div class="network traffic"> <i class="fa-solid fa-globe"></i>Web Traffic</div>
+                        <div class="network vk"><i class="fa-brands fa-vk"></i>VK.com</div>
+                        <div class="network spotify"> <i class="fa-brands fa-spotify"></i>Spotify</div>
+                        <div class="network twitch"><i class="fa-brands fa-twitch"></i>Twitch</div>
+                        <div class="network telegram-premium"> <i class="fa-brands fa-telegram"></i>Telegram Premium </div>
+                        <div class="network telegram-premium"> <i class="fa-brands fa-soundcloud"></i>Sound Cloud</div>
+                        <div class="network telegram-premium"> <i class="fa-brands fa-apple"></i>Apple Music</div>
+                        <div class="network telegram-premium"> <i class="fa-brands fa-linkedin"></i>Linkedin</div>
+                        <div class="network telegram-premium"> <i class="fa-solid fa-shield-halved"></i>Privacy</div> -->
 
-                <div class="service-grid">
-                    <div class="service-box">
-                        <i class="fa-solid fa-thumbs-up service-icon"></i>
-                        <h3>Likes Boost</h3>
-                        <p>Increase your likes on posts across various social media platforms.</p>
-                        <button class="service-btn">Boost Now</button>
-                    </div>
-
-                    <div class="service-box">
-                        <i class="fa-solid fa-share service-icon"></i>
-                        <h3>Shares Boost</h3>
-                        <p>Get more shares to extend your social media reach and visibility.</p>
-                        <button class="service-btn">Boost Now</button>
-                    </div>
-
-                    <div class="service-box">
-                        <i class="fa-solid fa-comments service-icon"></i>
-                        <h3>Comments Boost</h3>
-                        <p>Receive more comments to increase engagement on your posts.</p>
-                        <button class="service-btn">Boost Now</button>
-                    </div>
-
-                    <div class="service-box">
-                        <i class="fa-solid fa-users service-icon"></i>
-                        <h3>Followers Boost</h3>
-                        <p>Grow your followers to build a stronger social media presence.</p>
-                        <button class="service-btn">Boost Now</button>
+                        
+                    <div class="actions">
+                        <input type="text" class="search-bar" placeholder="Search" />
+                        <button class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
                     </div>
                 </div>
-            </section>
+                </div>
+            </div>
+
+
 
             <!-- Special Offers Section -->
             <section class="special-offers">
@@ -110,7 +139,7 @@
                         <button class="offer-btn">Claim Offer</button>
                     </div>
                     <div class="offer-box">
-                        <h3>Offer 2: Buy Followers, Get Free Shares</h3>
+                        <h3>Offer 2: Buy Followers, Free Shares</h3>
                         <p>For every follower boost you purchase, get free shares on your posts.</p>
                         <button class="offer-btn">Claim Offer</button>
                     </div>

@@ -1,3 +1,24 @@
+
+
+
+
+// Get all the menu items
+const menuItems = document.querySelectorAll('.menu a');
+
+// Add click event to each item
+menuItems.forEach(item => {
+    item.addEventListener('click', function() {
+        // Remove 'active' class from all menu items
+        menuItems.forEach(item => item.classList.remove('active'));
+        
+        // Add 'active' class to the clicked menu item
+        this.classList.add('active');
+    });
+});
+
+
+
+// close sidebar and open sidebar 
 const sidebar = document.getElementById('sidebar');
 const toggleBtn = document.getElementById('toggle-btn');
 const container = document.querySelector('.container');
@@ -18,6 +39,25 @@ toggleBtn.addEventListener('click', () => {
         icon.classList.add('fa-angle-left');
     }
 });
+
+
+
+
+// Select all network elements
+const networkItems = document.querySelectorAll('.network');
+
+// Loop through each network element and add click event listener
+networkItems.forEach(item => {
+    item.addEventListener('click', function() {
+        // Remove 'active' class from any previously active item
+        networkItems.forEach(el => el.classList.remove('active'));
+
+        // Add 'active' class to the clicked item
+        this.classList.add('active');
+    });
+});
+
+
 
 
 
