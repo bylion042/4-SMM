@@ -3,23 +3,17 @@
     padding: 0;
     box-sizing: border-box;
 }
-
 body {
     font-family: 'Arial', sans-serif;
     background: linear-gradient(113.36deg, #000002 -12.22%, #9685de 179.61%);
     color: #333;
 }
-
-
-
-
 .logo h1 {
     font-size: 24px;
     font-weight: 700;
     text-align: center;
     margin-bottom: 40px;
 }
-
 .sidebar {
     position: fixed;
     top: 0;
@@ -33,17 +27,6 @@ body {
     z-index: 1000;
     overflow: hidden;
 }
-
-/* .sidebar{
-    background-image: url('https://promovk.ru/panel/images/decor3.svg');
-    background-size: 70rem; 
-    background-repeat: no-repeat; 
-    background-position: center; 
-    position: fixed;
-    top: 0;
-    left: 0; 
-    z-index: 100; 
-} */
 @keyframes moveBackground {
     0% {
         background-position: center; 
@@ -61,7 +44,6 @@ body {
         background-position: center; 
     }
 }
-
 .sidebar {
     background-image: url('https://promovk.ru/panel/images/decor3.svg');
     background-size: 60rem; 
@@ -74,9 +56,6 @@ body {
     animation: moveBackground 9s ease-in-out infinite;
 }
 
-
-
-
 .menu {
     list-style: none;
     padding-bottom: 20px;
@@ -84,7 +63,6 @@ body {
     flex-direction: column;
     border-bottom: 1px solid rgba(89, 92, 152, .2);
 }
-
 .menu a {
     padding: 10px 0;
     font-weight: 500;
@@ -96,7 +74,6 @@ body {
     display: flex;
     gap: 15px;
 }
-
 .menu a.active {
     background: linear-gradient(113.36deg, #7f65e8 -12.22%, #b6a3ff 179.61%);
     color: #fff;
@@ -105,23 +82,21 @@ body {
     font-size: 17px;
 }
 
+
 /* footer  */
 footer {
     color: #ccc;
     text-align: center;
-    margin-top: 19rem;
+    margin-top: 22rem;
 }
-
 .footer-copyright {
     font-size: 15px;
     margin-top: 15px;
 }
-
 /* Sidebar hidden state */
 .sidebar.closed {
     transform: translateX(-100%);
 }
-
 /* Arrow to toggle sidebar */
 .toggle-sidebar {
     position: absolute;
@@ -133,19 +108,17 @@ footer {
     cursor: pointer;
     transition: left 0.3s ease;
 }
-
 .toggle-sidebar i {
     color: white;
     font-size: 20px;
 }
-
 .container.sidebar-closed .toggle-sidebar {
     left: 20px;
 }
-
 .container.sidebar-closed .main-content {
     margin-left: 20px;
 }
+
 
 
 
@@ -155,12 +128,11 @@ footer {
     flex-grow: 1;
     padding: 20px;
     margin-left: 250px;
-    transition: margin-left 0.3s ease;
+    transition: margin-left 0.2s ease;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
 }
-
 .main-content::before {
     content: "";
     position: fixed; 
@@ -175,8 +147,6 @@ footer {
     cursor: pointer; 
     animation: moveAround 9s linear infinite; /* Adjust duration for speed */
 }
-
-
 .header {
     display: flex;
     align-items: center;
@@ -186,7 +156,6 @@ footer {
     padding: 10px;
     border-radius: 10px;
 }
-
 .profile-summary {
     padding: 0 10px;
     display: flex;
@@ -195,14 +164,13 @@ footer {
     color: #fff;
     margin-left: 2rem;
 }
-
-
 .profile-pic {
     width: 80px;
     height: 80px;
     border-radius: 50%;
     border: 2px solid #d6cef8;
 }
+
 
 
 
@@ -215,7 +183,6 @@ footer {
     font-weight: lighter;
     font-size: larger;
 }
-
 .account-overview {
     border-radius: 10px;
     background: rgba(38, 39, 62, .4);
@@ -224,33 +191,27 @@ footer {
     margin-top: 20px;
     margin-bottom: 30px;
 }
-
 .overview-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
 }
-
 .overview-grid .active-1 {
     background: rgba(64, 66, 98, 0.4);
     gap: 10px;
 }
-
 .overview-grid .active-2 i {
     font-size: 38px;
     color: #ccc;
 }
-
 .active-2 {
     display: flex;
     gap: 15px;
     padding: 5px;
 }
-
 .overview-grid .active-1 .hold {
     color: #ccc;
 }
-
 .overview-box1 {
     background: linear-gradient(113.36deg, #8568fa -12.22%, #b5a5f8 179.61%);
     padding: 5px 20px;
@@ -258,7 +219,6 @@ footer {
     border-radius: 15px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
-
 .overview-box {
     background: linear-gradient(113.36deg, #8568fa -12.22%, #b5a5f8 179.61%);
     padding: 15px 20px;
@@ -268,25 +228,21 @@ footer {
     display: flex;
     gap: 10px;
 }
-
 .overview-box i {
     font-size: 50px;
     color: #fff;
 }
-
 .overview-box h3 {
     font-size: 15px;
     font-weight: 600;
     color: #fff;
     margin-bottom: 10px;
 }
-
 .overview-box p {
     font-size: 20px;
     color: #fff;
     margin-bottom: 10px;
 }
-
 .fund-btn {
     background: #7474ac;
     border: 1px solid rgba(89, 92, 152, .2);
@@ -297,105 +253,16 @@ footer {
     border-radius: 5px;
     cursor: pointer;
 }
-
 .fund-btn:hover {
     background: linear-gradient(113.36deg, #7f65e8 -12.22%, #b6a3ff 179.61%);
 }
 
 
 
-/* <!-- Social Media Boosting Services --> */
-.social-network {
-    border-radius: 10px;
-    background: rgba(38, 39, 62, .4);
-    border: 1px solid rgba(89, 92, 152, .2);
-    padding: 20px;
-    width: 100%;
-}
-
-.social-network h1 {
-    color: #fff;
-    margin-bottom: 10px;
-    font-size: xx-large;
-}
-
-.social-network h2 {
-    color: #fff;
-    margin-bottom: 10px;
-    font-size: 16px;
-    padding: 10px 0;
-    border-top: 1px solid rgba(89, 92, 152, .2);
-}
-
-.grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
-    margin-bottom: 40px;
-}
-
-.network {
-    background: rgba(64, 66, 98, 0.4);
-    border: 1px solid rgba(89, 92, 152, .2);
-    padding: 10px 10px;
-    border-radius: 8px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    color: #ccc;
-}
-
-.network i {
-    padding: 0 10px;
-    font-size: x-large;
-}
-
-.network:hover {
-    background-color: #7474ac;
-    color: #fff;
-}
-
-/* Active class */
-.network.active {
-    background: linear-gradient(113.36deg, #7f65e8 -12.22%, #b6a3ff 179.61%);
-    color: #fff;
-}
-
-.actions {
-    display: flex;
-    gap: 20px;
-    width: 100%;
-    border-top: 1px solid rgba(89, 92, 152, .2);
-    padding: 15px 0;
-}
-
-.search-bar {
-    border: none;
-    background: rgba(59, 60, 94, 0.4);
-    padding: 10px 0;
-    border-radius: 10px;
-    padding: 15px 15px;
-    color: white;
-    width: 100%;
-}
-
-input::placeholder {
-    color: #8d8c8c;
-    font-size: 15px;
-}
-
-.actions .search-btn {
-    padding: 10px 50px;
-    background: #7474ac;
-    border-radius: 10px;
-    color: #fff;
-    font-size: large;
-    border: none;
-}
-
-.actions .search-btn:hover {
-    background: linear-gradient(113.36deg, #7f65e8 -12.22%, #b6a3ff 179.61%);
-}
+/* 
+Social Media Boosting Services 
+HERE I ADDED THE STYLE FOR media boosting service in ENGAGEMENT CSS
+AND LINKED IT HERE */
 
 
 
@@ -404,17 +271,14 @@ input::placeholder {
 .special-offers {
     margin-top: 40px;
 }
-
 .special-offers h2 {
     padding: 20px;
 }
-
 .offers-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
 }
-
 .offer-box {
     padding: 20px;
     border-radius: 10px;
@@ -422,33 +286,30 @@ input::placeholder {
     background: rgba(38, 39, 62, .4);
     border: 1px solid rgba(89, 92, 152, .2);
 }
-
 .offer-box h3 {
-    font-size: 20px;
-    margin-bottom: 10px;
+    font-size: 17px;
+    font-weight: lighter;
+    margin-bottom: 8px;
     color: #a8a7a7;
-    padding: 5px 0;
+    padding: 0px 0;
 }
-
 .offer-box p {
-    font-size: 16px;
+    font-size: 15px;
     color: #a8a7a7;
     margin-bottom: 20px;
     border-bottom: 1px solid rgba(89, 92, 152, .2);
-    padding: 20px 0;
+    padding: 15px 0;
 }
-
 .offer-btn {
     background: #7474ac;
     border: 1px solid rgba(89, 92, 152, .2);
     color: #ccc;
-    padding: 10px 50px;
+    padding: 10px 40px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 17px;
+    font-size: 15px;
 }
-
 .offer-btn:hover {
     background: linear-gradient(113.36deg, #7f65e8 -12.22%, #b6a3ff 179.61%);
 }

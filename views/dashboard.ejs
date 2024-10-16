@@ -6,57 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>New Order</title>
     <link rel="stylesheet" href="/css/dashboard.css">
+
+    <!-- engagement links  -->
+    <link rel="stylesheet" href="/css/facebook.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
 </head>
 
 <body>
 
 
-    
+
     <div class="container">
-        <!-- Sidebar -->
-        <aside class="sidebar" id="sidebar">
-            <div class="logo">
-                <h1>Bby_Lion</h1>
-            </div>
-            <div class="menu">
-                <a href="/dashboard" class="on active"><i class="fa-solid fa-cart-shopping"></i>New order</a>
-                <a href="/dashbo" class="on"><i class="fa-solid fa-wallet"></i>Add funds</a>
-                <a href="#" class="on"><i class="fa-solid fa-bullhorn"></i>Updates</a>
-                <a href="#" class="on"><i class="fa-solid fa-taxi"></i>Services</a>
-                <a href="#" class="on"><i class="fa-solid fa-headset"></i>Place ads</a>
-                <a href="#" class="on"><i class="fa-solid fa-phone"></i>Contact us </a>
-                <a href="#" class="on"><i class="fa-solid fa-circle-exclamation"></i>Privacy Policy</a>
-                <a href="/" class="on"><i class="fa-solid fa-right-from-bracket"></i>Logout</a>
-            </div>
+        
+
+        <!-- sidebar  -->
+        <%- include ('partials/sidebar.ejs') %>
 
 
-            <footer>
-                    <div class="footer-copyright">
-                        &copy; 2024 Your 4 ssm . All rights reserved.
-                    </div>
-            </footer>
-        </aside>
 
-        <!-- Arrow to toggle sidebar -->
-        <div class="toggle-sidebar" id="toggle-btn">
-            <i class="fa-solid fa-angle-left"></i>
-        </div>
-
-        <!-- Main content -->
-        <main class="main-content">
-            <header class="header">
-                <div class="profile-summary">
-                    <img src="/uploads/IMG-20240529-WA0122.jpg" alt="Profile" class="profile-pic">
-                    <div>
-                        <h2>
-                            <%= username %>
-                        </h2>
-                        <p>
-                            <%= email %>
-                        </p>
-                    </div>
-                </div>
-            </header>
 
 
             <!-- Account Overview Section -->
@@ -93,39 +61,17 @@
                 </div>
             </section>
 
-            <!-- Social Media Boosting Services -->
-            <div class="social-network">
-                <div class="container">
-                    <h1>New Order</h1>
-                    <h2 class="section-title">Select a social network:</h2>
-                    <div class="grid">
-                        <div class="network facebook active"> <i class="fa-brands fa-facebook-f"></i> Facebook</div>
-                        <div class="network youtube"><i class="fa-brands fa-youtube"></i>YouTube</div>
-                        <div class="network tiktok"><i class="fa-brands fa-tiktok"></i>TikTok</div>
-                        <div class="network twitter"> <i class="fa-brands fa-twitter"></i>X / Twitter</div>
-                        <div class="network instagram"><i class="fa-brands fa-instagram"></i>Instagram</div>
-                        <div class="network everything"><i class="fa-regular fa-heart"></i>Everything</div>
-                        <div class="network telegram"><i class="fa-brands fa-telegram"></i>Telegram</div>
-                        <div class="network telegram-premium"> <i class="fa-brands fa-discord"></i>Discord</div>
-                        <div class="network telegram-premium"> <i class="fa-brands fa-reddit-alien"></i>Reddit</div>
-                        <!-- <div class="network traffic"> <i class="fa-solid fa-globe"></i>Web Traffic</div>
-                        <div class="network vk"><i class="fa-brands fa-vk"></i>VK.com</div>
-                        <div class="network spotify"> <i class="fa-brands fa-spotify"></i>Spotify</div>
-                        <div class="network twitch"><i class="fa-brands fa-twitch"></i>Twitch</div>
-                        <div class="network telegram-premium"> <i class="fa-brands fa-telegram"></i>Telegram Premium </div>
-                        <div class="network telegram-premium"> <i class="fa-brands fa-soundcloud"></i>Sound Cloud</div>
-                        <div class="network telegram-premium"> <i class="fa-brands fa-apple"></i>Apple Music</div>
-                        <div class="network telegram-premium"> <i class="fa-brands fa-linkedin"></i>Linkedin</div>
-                        <div class="network telegram-premium"> <i class="fa-solid fa-shield-halved"></i>Privacy</div> -->
 
-                        
-                    <div class="actions">
-                        <input type="text" class="search-bar" placeholder="Search" />
-                        <button class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
-                    </div>
-                </div>
-                </div>
-            </div>
+
+
+
+
+            <!-- Social Media Boosting Services -->
+            <%- include ('partials/facebook.ejs') %>
+
+
+
+
 
 
 
@@ -157,7 +103,9 @@
 
 
 
-
+    <!-- engagements scripts  -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="/js/facebook.js"></script>
 
     <script src="https://kit.fontawesome.com/b3fa93e021.js" crossorigin="anonymous"></script>
     <script src="/js/dashboard.js"></script>

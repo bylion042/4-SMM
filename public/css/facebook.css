@@ -1,0 +1,217 @@
+/* <!-- Social Media Boosting Services --> */
+.social-network {
+    border-radius: 10px;
+    background: rgba(38, 39, 62, .4);
+    border: 1px solid rgba(89, 92, 152, .2);
+    padding: 20px;
+    width: 100%;
+}
+.social-network h1 {
+    color: #fff;
+    margin-bottom: 10px;
+    font-size: xx-large;
+}
+.social-network h2 {
+    color: #fff;
+    margin-bottom: 10px;
+    font-size: 16px;
+    padding: 10px 0;
+    border-top: 1px solid rgba(89, 92, 152, .2);
+}
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 40px;
+}
+.network {
+    background: rgba(64, 66, 98, 0.4);
+    border: 1px solid rgba(89, 92, 152, .2);
+    padding: 8px 10px;
+    border-radius: 8px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    color: #ccc;
+}
+.network i {
+    padding: 0 10px;
+    font-size: 22px;
+}
+.network:hover {
+    background-color: #7474ac;
+    color: #fff;
+}
+/* Active class */
+.network.active {
+    background: linear-gradient(113.36deg, #7f65e8 -12.22%, #b6a3ff 179.61%);
+    color: #fff;
+}
+.actions {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    border-top: 1px solid rgba(89, 92, 152, .2);
+    padding: 15px 0;
+
+}
+.search-bar {
+    border: none;
+    background: rgba(59, 60, 94, 0.4);
+    padding: 10px 0;
+    border-radius: 10px;
+    padding: 10px 15px;
+    color: white;
+    width: 100%;
+}
+ .actions input::placeholder {
+    color: #8d8c8c;
+    font-size: 15px;
+}
+.actions .search-btn {
+    padding: 10px 50px;
+    background: #7474ac;
+    border-radius: 10px;
+    color: #fff;
+    font-size: large;
+    border: none;
+}
+.actions .search-btn:hover {
+    background: linear-gradient(113.36deg, #7f65e8 -12.22%, #b6a3ff 179.61%);
+}
+
+
+
+
+
+/* FOR MY TOGGLE ENGAGEMENT  */
+.summary{
+    display: flex;
+    padding: 0 10px;
+    gap: 5rem;
+    border: 1px solid rgba(89, 92, 152, .2);
+    border-radius: 10px;
+}
+
+.toggle-content {
+    margin: 15px 0;
+    width: 60%;
+    border-radius: 10px;
+    padding: 20px 15px;
+    /* border: 1px solid rgba(89, 92, 152, .2); */
+    border-radius: 5px;
+}
+
+label {
+    color: #ccc;
+  
+}
+
+input,select{
+    background: rgba(64, 66, 98, 0.4);
+    border: 1px solid rgba(89, 92, 152, .2);
+    padding: 8px 10px;
+    border-radius: 5px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    color: #fff;
+    width: 100%;
+    margin: 5px 0;
+    margin-bottom: 15px;
+}
+.delivery-time, #discount-info{
+    color: #ccc;
+    display: flex;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.submit-btn, #confirm-order{
+    padding: 10px 50px;
+    border: none;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    background: #7474ac;
+    font-size: 15px;
+    margin-top: 20px;
+}
+
+
+#order-summary-modal{
+    width: 30%;
+    height: 100%;
+    margin-top: 5rem;
+    /* border-radius: 10px; */
+    padding: 0 30px;
+    border-left: 1px solid  rgba(146, 150, 236, 0.2);
+}
+
+.flex{
+   display: flex;
+   flex-direction: column;
+   gap: 15px;
+   color: #ccc;
+}
+#order-summary-modal h3{
+    margin-bottom: 15px;
+    font-weight: lighter;
+    font-size: 20px;
+}
+
+
+
+
+
+
+
+
+/* Initial hidden state for the loading spinner */
+#loading-spinner {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+}
+
+/* Spinner appearance with a fade-in effect */
+#loading-spinner.active {
+    display: flex;
+    animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+/* The CSS-based spinner */
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 6px solid #b6a3ff   #7474a6;
+    border-top: 6px solid #7474ac; 
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+/* Keyframes for fade-in */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Keyframes for the spinning effect */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+

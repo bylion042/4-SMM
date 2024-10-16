@@ -1,0 +1,113 @@
+<div class="social-network">
+    <div class="container">
+        <h1>New Order</h1>
+        <h2 class="section-title">Select a social network:</h2>
+
+        <div class="grid">
+            <div class="network facebook active" id="facebook-toggle">
+                <i class="fa-brands fa-facebook"></i> Facebook
+            </div>
+            <div class="network youtube">
+                <i class="fa-brands fa-youtube"></i>YouTube
+            </div>
+            <div class="network tiktok">
+                <i class="fa-brands fa-tiktok"></i>TikTok
+            </div>
+            <div class="network twitter">
+                <i class="fa-brands fa-twitter"></i>X / Twitter
+            </div>
+            <div class="network instagram">
+                <i class="fa-brands fa-instagram"></i>Instagram
+            </div>
+            <div class="network everything">
+                <i class="fa-regular fa-heart"></i>Everything
+            </div>
+            <div class="network telegram">
+                <i class="fa-brands fa-telegram"></i>Telegram
+            </div>
+            <div class="network discord">
+                <i class="fa-brands fa-discord"></i>Discord
+            </div>
+            <div class="network reddit">
+                <i class="fa-brands fa-reddit-alien"></i>Reddit
+            </div>
+
+            <!-- <div class="network traffic"> <i class="fa-solid fa-globe"></i>Web Traffic</div>
+            <div class="network vk"><i class="fa-brands fa-vk"></i>VK.com</div>
+            <div class="network spotify"> <i class="fa-brands fa-spotify"></i>Spotify</div>
+            <div class="network twitch"><i class="fa-brands fa-twitch"></i>Twitch</div>
+            <div class="network telegram-premium"> <i class="fa-brands fa-telegram"></i>Telegram Premium </div>
+            <div class="network telegram-premium"> <i class="fa-brands fa-soundcloud"></i>Sound Cloud</div>
+            <div class="network telegram-premium"> <i class="fa-brands fa-apple"></i>Apple Music</div>
+            <div class="network telegram-premium"> <i class="fa-brands fa-linkedin"></i>Linkedin</div>
+            <div class="network telegram-premium"> <i class="fa-solid fa-shield-halved"></i>Privacy</div> -->
+        </div>
+
+        <div class="action-toggle">
+            <div class="actions">
+                <input type="text" class="search-bar" placeholder="Search" />
+                <button class="search-btn">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </div>
+
+            <div class="summary">
+                <div class="toggle-content" id="toggle-content" style="display: none;">
+                    <div class="dropdown">
+                        <label for="category">Category</label>
+                        <select id="category">
+                            <option value="telegram">Telegram ⭐ Premium members</option>
+                            <option value="facebook">Facebook Ads Campaign</option>
+                            <option value="instagram">Instagram Followers Boost</option>
+                        </select>
+                    </div>
+
+                    <div class="dropdown">
+                        <label for="service">Service</label>
+                        <select id="service"></select>
+                    </div>
+
+                    <div class="link-input">
+                        <label for="link">Link</label>
+                        <input type="text" id="link" placeholder="Enter the link here" />
+                    </div>
+
+                    <div class="quantity-input">
+                        <label for="quantity">Quantity</label>
+                        <input type="number" id="quantity" min="500" max="10000" placeholder="Min: 500 - Max: 10,000" />
+                    </div>
+
+                    <div class="charge-field">
+                        <label for="charge">Charge</label>
+                        <input type="text" id="charge" readonly />
+                    </div>
+
+                    <div class="delivery-time">
+                        <label>Estimated Delivery Time: </label>
+                        <span id="delivery-time"></span>
+                    </div>
+
+                    <div id="discount-info"></div>
+                    <button id="submit-btn" class="submit-btn">Submit</button>
+                </div>
+
+                <div id="order-summary-modal" style="display:none;">
+                <div class="flex">
+                    <h3>Order Summary</h3>
+                    <p>Service: <span id="summary-service"></span></p>
+                    <p>Link: <a id="summary-link" href="#" target="_blank"></a></p>
+                    <p>Quantity: <span id="summary-quantity"></span></p>
+                    <p>Total Charge: <span id="summary-charge"></span></p>
+                    <p>Estimated Delivery: <span id="summary-delivery"></span></p>
+                </div>
+                    <button id="confirm-order">Confirm Order</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="loading-spinner" style="display:none;">
+            <div class="spinner"></div>
+        </div>
+        
+    </div>
+</div>
