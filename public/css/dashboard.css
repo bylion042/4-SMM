@@ -55,7 +55,9 @@ body {
 .contain-hamburger {
     display: none;
 }
-
+.menu-container{
+    display: none;
+}
 .sidebar {
     background-image: url('https://promovk.ru/panel/images/decor3.svg');
     background-size: 60rem;
