@@ -1,20 +1,17 @@
-// Toggle content visibility for Facebook
-document.getElementById('facebook-toggle').addEventListener('click', function() {
-    const toggleContent = document.getElementById('toggle-content');
+// Toggle content visibility for Telegram
+document.getElementById('telegram-toggle').addEventListener('click', function() {
+    const toggleContent = document.getElementById('t-toggle-content');
     toggleContent.style.display = toggleContent.style.display === 'none' ? 'block' : 'none';
 });
 
 
 
-// JavaScript to handle dynamic updates, service
-//  selection, price calculation, and discount calculation:
-const services1 = {
-    facebook: [
-        { value: 'facebookview', text: 'Facebook Views - ≈ $0.20 per 1000', price: 0.20, deliveryTime: '50-90-sec', minQuantity: 100, maxQuantity: 10000 },
-        { value: 'facebookautolike', text: 'Facebook Auto Likes - ≈ $0.70 per 1000', price: 0.70, deliveryTime: '5-7-min', minQuantity: 100, maxQuantity: 10000 },
-        { value: 'facebookautoshear', text: 'Facebook Auto Shears - ≈ $0.60 per 1000', price: 0.60, deliveryTime: ' 8-9-min', minQuantity: 100, maxQuantity: 10000 },
-        { value: 'facebookprofilefollowers', text: 'Facebook Profile Followers - ≈ $0.80 per 1000', price: 0.80, deliveryTime: '10-15-min', minQuantity: 100, maxQuantity: 10000 },
-        { value: 'facebookpagefollowers', text: 'Facebook Page Followers - ≈ $0.90 per 1000', price: 0.90, deliveryTime: '15-20-min', minQuantity: 100, maxQuantity: 10000 }
+// Updated services object to include Telegram services
+const services = {
+    telegram: [
+        { value: 'telegramviews', text: 'Telegram Views - ≈ $0.15 per 1000', price: 0.15, deliveryTime: '30-60-sec', minQuantity: 100, maxQuantity: 10000 },
+        { value: 'telegrammembers', text: 'Telegram Members - ≈ $0.50 per 1000', price: 0.50, deliveryTime: '1-2-min', minQuantity: 100, maxQuantity: 10000 },
+        { value: 'telegramsponders', text: 'Telegram Responders - ≈ $0.70 per 1000', price: 0.70, deliveryTime: '2-3-min', minQuantity: 100, maxQuantity: 10000 }
     ]
 };
 
@@ -27,8 +24,8 @@ document.getElementById('category').addEventListener('change', function() {
     serviceDropdown.innerHTML = '';
 
     // Update the service dropdown with matching services
-    services1.facebook.forEach(service => {
-        if (service.value === selectedCategory || selectedCategory === 'facebook') {
+    services.telegram.forEach(service => {
+        if (service.value === selectedCategory || selectedCategory === 'telegram') {
             const option = document.createElement('option');
             option.value = service.value;
             option.text = service.text;
@@ -43,7 +40,7 @@ document.getElementById('category').addEventListener('change', function() {
     // If no matching services are found, show default message
     if (serviceDropdown.options.length === 0) {
         const option = document.createElement('option');
-        option.text = 'No services1 available';
+        option.text = 'No services available';
         serviceDropdown.appendChild(option);
     }
 
@@ -67,7 +64,6 @@ function updateQuantityLimits() {
 }
 
 // Function to calculate and update the charge based on selected service and quantity
-// Function to calculate and update the charge based on selected service and quantity
 function calculateCharge() {
     const serviceDropdown = document.getElementById('service');
     const selectedService = serviceDropdown.options[serviceDropdown.selectedIndex];
@@ -88,7 +84,6 @@ function calculateCharge() {
         document.getElementById('discount-info').textContent = '';
     }
 }
-
 
 // Function to display delivery time
 function displayDeliveryTime() {
@@ -117,11 +112,6 @@ document.getElementById('service').addEventListener('change', function() {
 
 document.getElementById('quantity').addEventListener('input', calculateCharge);
 
-
-
-
-
-
 // Order Summary Pop-up or Modal
 document.getElementById('submit-btn').addEventListener('click', function() {
     const serviceDropdown = document.getElementById('service');
@@ -144,15 +134,6 @@ document.getElementById('submit-btn').addEventListener('click', function() {
     document.getElementById('order-summary-modal').style.display = 'block';
 });
 
-
-
-
-
-
-
-
-
-
 // Function to show the spinner
 function showSpinner(show) {
     const spinner = document.getElementById('loading-spinner');
@@ -161,111 +142,28 @@ function showSpinner(show) {
     }
 }
 
-
-
-
 // Function to validate the form
 function validateForm() {
-    const service = document.getElementById('service').value;
-    const link = document.getElementById('link').value;
     const quantity = document.getElementById('quantity').value;
-
-    // Check for empty fields
-    if (!service || !link || !quantity) {
-        // Show error toast for empty fields
-        Toastify({
-            text: "Please fill in all fields before submitting.",
-            duration: 3000,
-            close: true,
-            gravity: "top",
-            position: "right",
-            backgroundColor: "#7474ac",  
-            style: {
-                borderRadius: "5px",
-                fontSize: "15px"
-            }
-        }).showToast();
-        return false; // Form is not valid
-    }
-    return true; // Form is valid
-}
-
-// Function to display the order summary
-function displayOrderSummary() {
-    const serviceDropdown = document.getElementById('service');
-    const selectedService = serviceDropdown.options[serviceDropdown.selectedIndex].text;
     const link = document.getElementById('link').value;
-    const quantity = document.getElementById('quantity').value;
-    const charge = document.getElementById('charge').value;
-    const deliveryTime = document.getElementById('summary-delivery').textContent;
-
-    // Populate the summary modal
-    document.getElementById('summary-service').textContent = selectedService;
-    document.getElementById('summary-link').textContent = link;
-    document.getElementById('summary-quantity').textContent = quantity;
-    document.getElementById('summary-charge').textContent = charge;
-    document.getElementById('summary-delivery').textContent = deliveryTime;
-
-    // Show the summary modal
-    document.getElementById('order-summary-modal').style.display = 'block';
+    return quantity > 0 && link.trim() !== '';
 }
 
-// Function to process the order after confirmation
-function processOrder() {
-    showSpinner(true);  // Show spinner during processing
-
-    // Simulating network processing with setTimeout
-    setTimeout(function() {
-        showSpinner(false);  // Stop spinner
-
-        // Simulating a network issue with a random condition (10% chance)
-        const networkIssue = Math.random() < 0.1;
-
-        if (networkIssue) {
-            // Show error toast for network issue
-            Toastify({
-                text: "Network error, please try again later.",
-                duration: 3000,
-                close: true,
-                gravity: "top",
-                position: "right",
-                backgroundColor: "#7474ac",  
-                style: {
-                    borderRadius: "10px",
-                    fontSize: "15px"
-                }
-            }).showToast();
-        } else {
-            // Success toast for order processed
-            Toastify({
-                text: "Order processed successfully!",
-                duration: 3000,
-                close: true,
-                gravity: "top",
-                position: "right",
-                backgroundColor: "#7474ac",  // Green background for success
-                style: {
-                    borderRadius: "10px",
-                    fontSize: "15px"
-                }
-            }).showToast();
-
-            // Hide the summary modal after processing
-            document.getElementById('order-summary-modal').style.display = 'none';
-        }
-    }, 2000);  // Simulating 2 seconds of processing
-}
-
-// Event listener for Submit button
-document.getElementById('submit-btn').addEventListener('click', function() {
-    if (validateForm()) {
-        displayOrderSummary();  // Show summary if form is valid
-    }
-});
-
-// Event listener for Confirm Order button
+// Confirm Order Button Event Listener
 document.getElementById('confirm-order').addEventListener('click', function() {
-    if (validateForm()) {  // Ensure the form is validated before processing
-        processOrder();  // Process the order after confirming
+    if (!validateForm()) {
+        alert('Please fill in all fields correctly before confirming the order.');
+        return;
     }
+
+    // Show spinner while processing order
+    showSpinner(true);
+
+    // Simulate an order submission (You can replace this with actual logic)
+    setTimeout(() => {
+        showSpinner(false);
+        alert('Order confirmed! Thank you for your purchase.');
+        // Close the modal after confirmation
+        document.getElementById('order-summary-modal').style.display = 'none';
+    }, 2000);
 });

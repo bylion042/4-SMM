@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New Order</title>
+    <title>dashboard</title>
     <link rel="stylesheet" href="/css/dashboard.css">
+    <link rel="icon" href="/uploads/favicon.png">
 
     <!-- engagement links  -->
     <link rel="stylesheet" href="/css/facebook.css">
@@ -18,96 +19,125 @@
 
 
     <div class="container">
-        
+
 
         <!-- sidebar  -->
         <%- include ('partials/sidebar.ejs') %>
 
 
 
+            <!-- Main content -->
+            <main class="main-content">
+                <header class="header">
+                    <div class="profile-summary">
+                        <img src="/uploads/favicon.png" alt="Profile" class="profile-pic">
+                        <div>
+                            <h2>
+                                <%= username %>
+                            </h2>
+                            <p>
+                                <%= email %>
+                            </p>
+                        </div>
+                    </div>
+                </header>
 
 
-            <!-- Account Overview Section -->
-            <section class="account-overview">
-                <h2 class="section-title">Account Overview</h2>
 
-                <div class="overview-grid">
-                    <div class="overview-box1 active-1">
-                        <div class="active-2">
-                            <i class="fa-solid fa-wallet"></i>
+
+                <!-- Account Overview Section -->
+                <section class="account-overview">
+                    <h2 class="section-title">Account Overview</h2>
+
+                    <div class="overview-grid">
+                        <div class="overview-box1 active-1">
+                            <div class="active-2">
+                                <i class="fa-solid fa-wallet"></i>
+                                <div class="hold">
+                                    <h3>Current Balance</h3>
+                                    <p>0.00</p>
+                                </div>
+                            </div>
+                            <button class="fund-btn">Fund Account</button>
+                        </div>
+
+                        <div class="overview-box">
+                            <i class="fa-solid fa-cart-shopping"></i>
                             <div class="hold">
-                                <h3>Current Balance</h3>
-                                <p>0.00</p>
+                                <h3>Orders processed</h3>
+                                <p>50,935,318</p>
                             </div>
                         </div>
-                        <button class="fund-btn">Fund Account</button>
-                    </div>
 
-                    <div class="overview-box">
-                        <i class="fa-solid fa-cart-shopping"></i>
-                        <div class="hold">
-                            <h3>Orders processed</h3>
-                            <p>50,935,318</p>
+                        <div class="overview-box">
+                            <i class="fa-solid fa-wifi"></i>
+                            <div class="hold">
+                                <h3>Stay Connected</h3>
+                                <p>Null</p>
+                            </div>
                         </div>
                     </div>
+                </section>
 
-                    <div class="overview-box">
-                        <i class="fa-solid fa-wifi"></i>
-                        <div class="hold">
-                            <h3>Stay Connected</h3>
-                            <p>Null</p>
+
+
+
+
+
+                <div class="social-network">
+                    <div class="container">
+                        <h1>New Order</h1>
+                        <h2 class="section-title">Select a social network:</h2>
+                    </div>
+                        
+                        <!-- Social Media Boosting Services -->
+                    <div class="grid">
+                        <%- include ('partials/facebook.ejs') %>
+                        <%- include ('partials/telegram.ejs') %>
+                    </div> 
+                </div>
+
+
+
+
+
+
+                    <!-- Special Offers Section -->
+                    <section class="special-offers">
+                        <h2 class="section-title">Special Offers</h2>
+                        <div class="offers-grid">
+                            <div class="offer-box">
+                                <h3>Offer 1: Get 20% Off Likes Boost</h3>
+                                <p>Boost your likes at a discounted price for a limited time only.</p>
+                                <button class="offer-btn">Claim Offer</button>
+                            </div>
+                            <div class="offer-box">
+                                <h3>Offer 2: Buy Followers, Free Shares</h3>
+                                <p>For every follower boost you purchase, get free shares on your posts.</p>
+                                <button class="offer-btn">Claim Offer</button>
+                            </div>
+                            <div class="offer-box">
+                                <h3>Offer 3: 50% Off on All Services</h3>
+                                <p>Enjoy half price on all social media boosting services for new users.</p>
+                                <button class="offer-btn">Claim Offer</button>
+                            </div>
                         </div>
-                    </div>
-                </div>
-            </section>
-
-
-
-
-
-
-            <!-- Social Media Boosting Services -->
-            <%- include ('partials/facebook.ejs') %>
-
-
-
-
-
-
-
-            <!-- Special Offers Section -->
-            <section class="special-offers">
-                <h2 class="section-title">Special Offers</h2>
-                <div class="offers-grid">
-                    <div class="offer-box">
-                        <h3>Offer 1: Get 20% Off Likes Boost</h3>
-                        <p>Boost your likes at a discounted price for a limited time only.</p>
-                        <button class="offer-btn">Claim Offer</button>
-                    </div>
-                    <div class="offer-box">
-                        <h3>Offer 2: Buy Followers, Free Shares</h3>
-                        <p>For every follower boost you purchase, get free shares on your posts.</p>
-                        <button class="offer-btn">Claim Offer</button>
-                    </div>
-                    <div class="offer-box">
-                        <h3>Offer 3: 50% Off on All Services</h3>
-                        <p>Enjoy half price on all social media boosting services for new users.</p>
-                        <button class="offer-btn">Claim Offer</button>
-                    </div>
-                </div>
-            </section>
-        </main>
+                    </section>
+            </main>
 
     </div>
 
 
 
 
-    <!-- engagements scripts  -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-    <script src="/js/facebook.js"></script>
 
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="https://kit.fontawesome.com/b3fa93e021.js" crossorigin="anonymous"></script>
+
+    <script src="/js/facebook.js"></script>
+    <script src="/js/telegram.js"></script>
+    
+    
     <script src="/js/dashboard.js"></script>
 </body>
 
