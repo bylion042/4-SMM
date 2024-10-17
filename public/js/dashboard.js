@@ -61,3 +61,24 @@ networkItems.forEach(item => {
 
 
 
+// HAMBURGER 
+document.addEventListener("DOMContentLoaded", function() {
+    const hamburgerMenu = document.getElementById("hamburger-menu");
+    const menuContainer = document.getElementById("menu-container");
+    const openIcon = document.getElementById("open-menu");
+    const closeIcon = document.getElementById("close-menu");
+
+    // Toggle menu visibility
+    hamburgerMenu.addEventListener("click", function() {
+        menuContainer.classList.toggle("active");
+
+        // Toggle hamburger icons
+        if (menuContainer.classList.contains("active")) {
+            openIcon.style.display = "none";
+            closeIcon.style.display = "block";
+        } else {
+            openIcon.style.display = "block";
+            closeIcon.style.display = "none";
+        }
+    });
+});
