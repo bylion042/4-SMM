@@ -1,18 +1,15 @@
 // Toggle content visibility for Facebook
 document.getElementById('facebook-toggle').addEventListener('click', function() {
-    const toggleContent = document.getElementById('toggle-content');
+    let toggleContent = document.getElementById('toggle-content');
     toggleContent.style.display = toggleContent.style.display === 'none' ? 'block' : 'none';
 });
 
-
-
-// JavaScript to handle dynamic updates, service
-//  selection, price calculation, and discount calculation:
-const services1 = {
+// Define services for Facebook
+let services = {
     facebook: [
         { value: 'facebookview', text: 'Facebook Views - ≈ $0.20 per 1000', price: 0.20, deliveryTime: '50-90-sec', minQuantity: 100, maxQuantity: 10000 },
         { value: 'facebookautolike', text: 'Facebook Auto Likes - ≈ $0.70 per 1000', price: 0.70, deliveryTime: '5-7-min', minQuantity: 100, maxQuantity: 10000 },
-        { value: 'facebookautoshear', text: 'Facebook Auto Shears - ≈ $0.60 per 1000', price: 0.60, deliveryTime: ' 8-9-min', minQuantity: 100, maxQuantity: 10000 },
+        { value: 'facebookautoshear', text: 'Facebook Auto Shears - ≈ $0.60 per 1000', price: 0.60, deliveryTime: '8-9-min', minQuantity: 100, maxQuantity: 10000 },
         { value: 'facebookprofilefollowers', text: 'Facebook Profile Followers - ≈ $0.80 per 1000', price: 0.80, deliveryTime: '10-15-min', minQuantity: 100, maxQuantity: 10000 },
         { value: 'facebookpagefollowers', text: 'Facebook Page Followers - ≈ $0.90 per 1000', price: 0.90, deliveryTime: '15-20-min', minQuantity: 100, maxQuantity: 10000 }
     ]
@@ -20,68 +17,60 @@ const services1 = {
 
 // Function to dynamically update the service dropdown based on category selection
 document.getElementById('category').addEventListener('change', function() {
-    const selectedCategory = this.value;
-    const serviceDropdown = document.getElementById('service');
+    let selectedCategory = this.value;
+    let serviceDropdown = document.getElementById('service');
     
-    // Clear the existing service options
-    serviceDropdown.innerHTML = '';
+    serviceDropdown.innerHTML = ''; // Clear the existing service options
 
-    // Update the service dropdown with matching services
-    services1.facebook.forEach(service => {
+    services.facebook.forEach(service => {
         if (service.value === selectedCategory || selectedCategory === 'facebook') {
-            const option = document.createElement('option');
+            let option = document.createElement('option');
             option.value = service.value;
             option.text = service.text;
-            option.setAttribute('data-price', service.price);  // Attach price
-            option.setAttribute('data-delivery-time', service.deliveryTime);  // Attach delivery time
-            option.setAttribute('data-min-quantity', service.minQuantity);  // Attach min quantity
-            option.setAttribute('data-max-quantity', service.maxQuantity);  // Attach max quantity
+            option.setAttribute('data-price', service.price);
+            option.setAttribute('data-delivery-time', service.deliveryTime);
+            option.setAttribute('data-min-quantity', service.minQuantity);
+            option.setAttribute('data-max-quantity', service.maxQuantity);
             serviceDropdown.appendChild(option);
         }
     });
 
-    // If no matching services are found, show default message
     if (serviceDropdown.options.length === 0) {
-        const option = document.createElement('option');
-        option.text = 'No services1 available';
+        let option = document.createElement('option');
+        option.text = 'No services available';
         serviceDropdown.appendChild(option);
     }
 
-    // Update charge, delivery time, and quantity limits
     updateQuantityLimits();
     calculateCharge();
     displayDeliveryTime();
 });
 
-// Function to update the quantity input based on the selected service
+// Function to update the quantity input based on the selected Facebook service
 function updateQuantityLimits() {
-    const serviceDropdown = document.getElementById('service');
-    const selectedService = serviceDropdown.options[serviceDropdown.selectedIndex];
-    const minQuantity = selectedService ? selectedService.getAttribute('data-min-quantity') : 1;
-    const maxQuantity = selectedService ? selectedService.getAttribute('data-max-quantity') : 10000;
+    let serviceDropdown = document.getElementById('service');
+    let selectedService = serviceDropdown.options[serviceDropdown.selectedIndex];
+    let minQuantity = selectedService ? selectedService.getAttribute('data-min-quantity') : 1;
+    let maxQuantity = selectedService ? selectedService.getAttribute('data-max-quantity') : 10000;
 
-    const quantityInput = document.getElementById('quantity');
+    let quantityInput = document.getElementById('quantity');
     quantityInput.min = minQuantity;
     quantityInput.max = maxQuantity;
     quantityInput.placeholder = `Min: ${minQuantity} - Max: ${maxQuantity} per user`;
 }
 
-// Function to calculate and update the charge based on selected service and quantity
-// Function to calculate and update the charge based on selected service and quantity
+// Function to calculate and update the charge based on selected service and quantity for Facebook
 function calculateCharge() {
-    const serviceDropdown = document.getElementById('service');
-    const selectedService = serviceDropdown.options[serviceDropdown.selectedIndex];
-    const pricePerThousand = selectedService ? selectedService.getAttribute('data-price') : 0;  // Price is per 1000 units
+    let serviceDropdown = document.getElementById('service');
+    let selectedService = serviceDropdown.options[serviceDropdown.selectedIndex];
+    let pricePerThousand = selectedService ? selectedService.getAttribute('data-price') : 0;
 
-    const quantity = document.getElementById('quantity').value;
+    let quantity = document.getElementById('quantity').value;
     
-    // Calculate charge as price per 1000 units, so divide quantity by 1000
-    const charge = (quantity / 1000) * pricePerThousand;
-
+    let charge = (quantity / 1000) * pricePerThousand;
     document.getElementById('charge').value = `$${charge.toFixed(2)}`;
 
-    // Optional: Calculate and display any discount
-    const discount = calculateDiscount(quantity);
+    let discount = calculateDiscount(quantity);
     if (discount > 0) {
         document.getElementById('discount-info').textContent = `You received a ${discount * 100}% discount!`;
     } else {
@@ -89,26 +78,25 @@ function calculateCharge() {
     }
 }
 
-
-// Function to display delivery time
+// Function to display delivery time for the selected Facebook service
 function displayDeliveryTime() {
-    const serviceDropdown = document.getElementById('service');
-    const selectedService = serviceDropdown.options[serviceDropdown.selectedIndex];
-    const deliveryTime = selectedService ? selectedService.getAttribute('data-delivery-time') : '';
+    let serviceDropdown = document.getElementById('service');
+    let selectedService = serviceDropdown.options[serviceDropdown.selectedIndex];
+    let deliveryTime = selectedService ? selectedService.getAttribute('data-delivery-time') : '';
     document.getElementById('delivery-time').textContent = deliveryTime;
 }
 
-// Discount calculation based on quantity
+// Function to calculate discount based on quantity
 function calculateDiscount(quantity) {
     if (quantity >= 5000) {
-        return 0.10;  // 10% discount for orders of 5000 or more
+        return 0.10;
     } else if (quantity >= 1000) {
-        return 0.05;  // 5% discount for orders of 1000 or more
+        return 0.05;
     }
-    return 0;  // No discount
+    return 0;
 }
 
-// Event listeners to update charge, delivery time, and quantity limits dynamically
+// Event listeners
 document.getElementById('service').addEventListener('change', function() {
     updateQuantityLimits();
     calculateCharge();
@@ -117,32 +105,24 @@ document.getElementById('service').addEventListener('change', function() {
 
 document.getElementById('quantity').addEventListener('input', calculateCharge);
 
-
-
-
-
-
 // Order Summary Pop-up or Modal
 document.getElementById('submit-btn').addEventListener('click', function() {
-    const serviceDropdown = document.getElementById('service');
-    const selectedServiceText = serviceDropdown.options[serviceDropdown.selectedIndex].textContent;
-    const quantity = document.getElementById('quantity').value;
-    const charge = document.getElementById('charge').value;
-    const deliveryTime = document.getElementById('delivery-time').textContent;
-    
-    // Get the inputted link
-    const link = document.getElementById('link').value;
+    let serviceDropdown = document.getElementById('service');
+    let selectedServiceText = serviceDropdown.options[serviceDropdown.selectedIndex].textContent;
+    let quantity = document.getElementById('quantity').value;
+    let charge = document.getElementById('charge').value;
+    let deliveryTime = document.getElementById('delivery-time').textContent;
+    let link = document.getElementById('link').value;
 
-    // Populate the modal fields
     document.getElementById('summary-service').textContent = selectedServiceText;
-    document.getElementById('summary-link').textContent = link;  // Display the entered link
+    document.getElementById('summary-link').textContent = link;
     document.getElementById('summary-quantity').textContent = quantity;
     document.getElementById('summary-charge').textContent = charge;
     document.getElementById('summary-delivery').textContent = deliveryTime;
 
-    // Show the modal
     document.getElementById('order-summary-modal').style.display = 'block';
 });
+
 
 
 

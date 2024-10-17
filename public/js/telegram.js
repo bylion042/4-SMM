@@ -4,28 +4,27 @@ document.getElementById('telegram-toggle').addEventListener('click', function() 
     toggleContent.style.display = toggleContent.style.display === 'none' ? 'block' : 'none';
 });
 
-
-
-// Updated services object to include Telegram services
-const services = {
+// Define services for Telegram
+// Telegram services data
+const telegramServices = {
     telegram: [
-        { value: 'telegramviews', text: 'Telegram Views - ≈ $0.15 per 1000', price: 0.15, deliveryTime: '30-60-sec', minQuantity: 100, maxQuantity: 10000 },
-        { value: 'telegrammembers', text: 'Telegram Members - ≈ $0.50 per 1000', price: 0.50, deliveryTime: '1-2-min', minQuantity: 100, maxQuantity: 10000 },
-        { value: 'telegramsponders', text: 'Telegram Responders - ≈ $0.70 per 1000', price: 0.70, deliveryTime: '2-3-min', minQuantity: 100, maxQuantity: 10000 }
+        { value: 'telegramviews', text: 'Telegram Views - ≈ $0.30 per 1000', price: 0.30, deliveryTime: '2-5-min', minQuantity: 100, maxQuantity: 10000 },
+        { value: 'telegrammembers', text: 'Telegram Members - ≈ $0.50 per 1000', price: 0.50, deliveryTime: '10-15-min', minQuantity: 100, maxQuantity: 10000 },
+        { value: 'telegramsponders', text: 'Telegram Responders - ≈ $0.40 per 1000', price: 0.40, deliveryTime: '7-10-min', minQuantity: 100, maxQuantity: 10000 }
     ]
 };
 
-// Function to dynamically update the service dropdown based on category selection
+// Function to dynamically update the service dropdown based on category selection for Telegram
 document.getElementById('category').addEventListener('change', function() {
     const selectedCategory = this.value;
-    const serviceDropdown = document.getElementById('service');
+    const telegramServiceDropdown = document.getElementById('service');
     
     // Clear the existing service options
-    serviceDropdown.innerHTML = '';
+    telegramServiceDropdown.innerHTML = '';
 
     // Update the service dropdown with matching services
-    services.telegram.forEach(service => {
-        if (service.value === selectedCategory || selectedCategory === 'telegram') {
+    telegramServices.telegram.forEach(service => {
+        if (selectedCategory === 'telegram' || service.value.includes(selectedCategory)) {
             const option = document.createElement('option');
             option.value = service.value;
             option.text = service.text;
@@ -33,51 +32,51 @@ document.getElementById('category').addEventListener('change', function() {
             option.setAttribute('data-delivery-time', service.deliveryTime);  // Attach delivery time
             option.setAttribute('data-min-quantity', service.minQuantity);  // Attach min quantity
             option.setAttribute('data-max-quantity', service.maxQuantity);  // Attach max quantity
-            serviceDropdown.appendChild(option);
+            telegramServiceDropdown.appendChild(option);
         }
     });
 
     // If no matching services are found, show default message
-    if (serviceDropdown.options.length === 0) {
+    if (telegramServiceDropdown.options.length === 0) {
         const option = document.createElement('option');
         option.text = 'No services available';
-        serviceDropdown.appendChild(option);
+        telegramServiceDropdown.appendChild(option);
     }
 
     // Update charge, delivery time, and quantity limits
-    updateQuantityLimits();
-    calculateCharge();
-    displayDeliveryTime();
+    updateTelegramQuantityLimits();
+    calculateTelegramCharge();
+    displayTelegramDeliveryTime();
 });
 
-// Function to update the quantity input based on the selected service
-function updateQuantityLimits() {
-    const serviceDropdown = document.getElementById('service');
-    const selectedService = serviceDropdown.options[serviceDropdown.selectedIndex];
-    const minQuantity = selectedService ? selectedService.getAttribute('data-min-quantity') : 1;
-    const maxQuantity = selectedService ? selectedService.getAttribute('data-max-quantity') : 10000;
+// Function to update the quantity input based on the selected Telegram service
+function updateTelegramQuantityLimits() {
+    const telegramServiceDropdown = document.getElementById('service');
+    const selectedTelegramService = telegramServiceDropdown.options[telegramServiceDropdown.selectedIndex];
+    const minQuantity = selectedTelegramService ? selectedTelegramService.getAttribute('data-min-quantity') : 1;
+    const maxQuantity = selectedTelegramService ? selectedTelegramService.getAttribute('data-max-quantity') : 10000;
 
-    const quantityInput = document.getElementById('quantity');
-    quantityInput.min = minQuantity;
-    quantityInput.max = maxQuantity;
-    quantityInput.placeholder = `Min: ${minQuantity} - Max: ${maxQuantity} per user`;
+    const telegramQuantityInput = document.getElementById('quantity');
+    telegramQuantityInput.min = minQuantity;
+    telegramQuantityInput.max = maxQuantity;
+    telegramQuantityInput.placeholder = `Min: ${minQuantity} - Max: ${maxQuantity} per user`;
 }
 
-// Function to calculate and update the charge based on selected service and quantity
-function calculateCharge() {
-    const serviceDropdown = document.getElementById('service');
-    const selectedService = serviceDropdown.options[serviceDropdown.selectedIndex];
-    const pricePerThousand = selectedService ? selectedService.getAttribute('data-price') : 0;  // Price is per 1000 units
+// Function to calculate and update the charge based on selected service and quantity for Telegram
+function calculateTelegramCharge() {
+    const telegramServiceDropdown = document.getElementById('service');
+    const selectedTelegramService = telegramServiceDropdown.options[telegramServiceDropdown.selectedIndex];
+    const pricePerThousand = selectedTelegramService ? selectedTelegramService.getAttribute('data-price') : 0;  // Price is per 1000 units
 
-    const quantity = document.getElementById('quantity').value;
+    const telegramQuantity = document.getElementById('quantity').value;
     
     // Calculate charge as price per 1000 units, so divide quantity by 1000
-    const charge = (quantity / 1000) * pricePerThousand;
+    const charge = (telegramQuantity / 1000) * pricePerThousand;
 
     document.getElementById('charge').value = `$${charge.toFixed(2)}`;
 
     // Optional: Calculate and display any discount
-    const discount = calculateDiscount(quantity);
+    const discount = calculateTelegramDiscount(telegramQuantity);
     if (discount > 0) {
         document.getElementById('discount-info').textContent = `You received a ${discount * 100}% discount!`;
     } else {
@@ -85,16 +84,16 @@ function calculateCharge() {
     }
 }
 
-// Function to display delivery time
-function displayDeliveryTime() {
-    const serviceDropdown = document.getElementById('service');
-    const selectedService = serviceDropdown.options[serviceDropdown.selectedIndex];
-    const deliveryTime = selectedService ? selectedService.getAttribute('data-delivery-time') : '';
+// Function to display delivery time for Telegram
+function displayTelegramDeliveryTime() {
+    const telegramServiceDropdown = document.getElementById('service');
+    const selectedTelegramService = telegramServiceDropdown.options[telegramServiceDropdown.selectedIndex];
+    const deliveryTime = selectedTelegramService ? selectedTelegramService.getAttribute('data-delivery-time') : '';
     document.getElementById('delivery-time').textContent = deliveryTime;
 }
 
-// Discount calculation based on quantity
-function calculateDiscount(quantity) {
+// Discount calculation based on quantity for Telegram
+function calculateTelegramDiscount(quantity) {
     if (quantity >= 5000) {
         return 0.10;  // 10% discount for orders of 5000 or more
     } else if (quantity >= 1000) {
@@ -103,67 +102,126 @@ function calculateDiscount(quantity) {
     return 0;  // No discount
 }
 
-// Event listeners to update charge, delivery time, and quantity limits dynamically
+// Event listeners to update charge, delivery time, and quantity limits dynamically for Telegram
 document.getElementById('service').addEventListener('change', function() {
-    updateQuantityLimits();
-    calculateCharge();
-    displayDeliveryTime();
+    updateTelegramQuantityLimits();
+    calculateTelegramCharge();
+    displayTelegramDeliveryTime();
 });
 
-document.getElementById('quantity').addEventListener('input', calculateCharge);
+document.getElementById('quantity').addEventListener('input', calculateTelegramCharge);
 
-// Order Summary Pop-up or Modal
+// Order Summary Pop-up or Modal for Telegram
 document.getElementById('submit-btn').addEventListener('click', function() {
-    const serviceDropdown = document.getElementById('service');
-    const selectedServiceText = serviceDropdown.options[serviceDropdown.selectedIndex].textContent;
-    const quantity = document.getElementById('quantity').value;
-    const charge = document.getElementById('charge').value;
-    const deliveryTime = document.getElementById('delivery-time').textContent;
+    const telegramServiceDropdown = document.getElementById('service');
+    const selectedTelegramServiceText = telegramServiceDropdown.options[telegramServiceDropdown.selectedIndex].textContent;
+    const telegramQuantity = document.getElementById('quantity').value;
+    const telegramCharge = document.getElementById('charge').value;
+    const telegramDeliveryTime = document.getElementById('delivery-time').textContent;
     
     // Get the inputted link
-    const link = document.getElementById('link').value;
+    const telegramLink = document.getElementById('link').value;
 
     // Populate the modal fields
-    document.getElementById('summary-service').textContent = selectedServiceText;
-    document.getElementById('summary-link').textContent = link;  // Display the entered link
-    document.getElementById('summary-quantity').textContent = quantity;
-    document.getElementById('summary-charge').textContent = charge;
-    document.getElementById('summary-delivery').textContent = deliveryTime;
+    document.getElementById('summary-service').textContent = selectedTelegramServiceText;
+    document.getElementById('summary-link').textContent = telegramLink;  // Display the entered link
+    document.getElementById('summary-quantity').textContent = telegramQuantity;
+    document.getElementById('summary-charge').textContent = telegramCharge;
+    document.getElementById('summary-delivery').textContent = telegramDeliveryTime;
 
     // Show the modal
     document.getElementById('order-summary-modal').style.display = 'block';
 });
 
-// Function to show the spinner
-function showSpinner(show) {
-    const spinner = document.getElementById('loading-spinner');
-    if (spinner) {
-        spinner.style.display = show ? 'block' : 'none';
+// Function to show the spinner for Telegram
+function showTelegramSpinner(show) {
+    const telegramSpinner = document.getElementById('loading-spinner');
+    if (telegramSpinner) {
+        telegramSpinner.style.display = show ? 'block' : 'none';
     }
 }
 
-// Function to validate the form
-function validateForm() {
-    const quantity = document.getElementById('quantity').value;
-    const link = document.getElementById('link').value;
-    return quantity > 0 && link.trim() !== '';
+// Function to validate the form for Telegram
+function validateTelegramForm() {
+    const telegramService = document.getElementById('service').value;
+    const telegramLink = document.getElementById('link').value;
+    const telegramQuantity = document.getElementById('quantity').value;
+
+    // Check for empty fields
+    if (!telegramService || !telegramLink || !telegramQuantity) {
+        // Show error toast for empty fields
+        Toastify({
+            text: "Please fill in all fields before submitting.",
+            duration: 3000,
+            close: true,
+            gravity: "top",
+            position: "right",
+            backgroundColor: "#7474ac",  
+            style: {
+                borderRadius: "5px",
+                fontSize: "15px"
+            }
+        }).showToast();
+        return false; // Form is not valid
+    }
+    return true; // Form is valid
 }
 
-// Confirm Order Button Event Listener
-document.getElementById('confirm-order').addEventListener('click', function() {
-    if (!validateForm()) {
-        alert('Please fill in all fields correctly before confirming the order.');
-        return;
+// Event listener for Submit button on Telegram
+document.getElementById('submit-btn').addEventListener('click', function() {
+    if (validateTelegramForm()) {
+        displayTelegramOrderSummary();  // Show summary if form is valid
     }
-
-    // Show spinner while processing order
-    showSpinner(true);
-
-    // Simulate an order submission (You can replace this with actual logic)
-    setTimeout(() => {
-        showSpinner(false);
-        alert('Order confirmed! Thank you for your purchase.');
-        // Close the modal after confirmation
-        document.getElementById('order-summary-modal').style.display = 'none';
-    }, 2000);
 });
+
+// Event listener for Confirm Order button for Telegram
+document.getElementById('confirm-order').addEventListener('click', function() {
+    if (validateTelegramForm()) {  // Ensure the form is validated before processing
+        processTelegramOrder();  // Process the order after confirming
+    }
+});
+
+// Function to display the order summary for Telegram
+function displayTelegramOrderSummary() {
+    const telegramServiceDropdown = document.getElementById('service');
+    const selectedTelegramService = telegramServiceDropdown.options[telegramServiceDropdown.selectedIndex].text;
+    const telegramLink = document.getElementById('link').value;
+    const telegramQuantity = document.getElementById('quantity').value;
+    const telegramCharge = document.getElementById('charge').value;
+    const telegramDeliveryTime = document.getElementById('summary-delivery').textContent;
+
+    // Populate the summary modal
+    document.getElementById('summary-service').textContent = selectedTelegramService;
+    document.getElementById('summary-link').textContent = telegramLink;
+    document.getElementById('summary-quantity').textContent = telegramQuantity;
+    document.getElementById('summary-charge').textContent = telegramCharge;
+    document.getElementById('summary-delivery').textContent = telegramDeliveryTime;
+
+    // Show the summary modal
+    document.getElementById('order-summary-modal').style.display = 'block';
+}
+
+// Function to process the order for Telegram (after confirmation)
+function processTelegramOrder() {
+    showTelegramSpinner(true); // Show the loading spinner while processing
+
+    setTimeout(function() {
+        // Simulate successful order processing with a toast notification
+        Toastify({
+            text: "Order placed successfully!",
+            duration: 3000,
+            close: true,
+            gravity: "top",
+            position: "right",
+            backgroundColor: "#28a745",
+            style: {
+                borderRadius: "5px",
+                fontSize: "15px"
+            }
+        }).showToast();
+
+        // Hide the spinner and modal after processing
+        showTelegramSpinner(false);
+        document.getElementById('order-summary-modal').style.display = 'none';
+    }, 2000); // Simulated delay of 2 seconds for order processing
+}

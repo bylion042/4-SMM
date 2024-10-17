@@ -315,3 +315,64 @@ AND LINKED IT HERE */
 .offer-btn:hover {
     background: linear-gradient(113.36deg, #7f65e8 -12.22%, #b6a3ff 179.61%);
 }
+
+
+
+
+
+
+
+@media (max-width: 800px) {
+    .sidebar {
+        display: none;
+    }
+    /* Arrow to toggle sidebar */
+    .toggle-sidebar {
+        display: none;
+    }
+ 
+    
+    /* Main Content */
+    .main-content {
+        margin-left: 0px;
+        width: 100%;
+    }
+    .profile-summary {
+        gap: 10px;
+        margin-left: 0rem;
+    }
+    .profile-pic {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        border: 2px solid #7474ac;
+    }
+    
+    
+    /* Account Overview Section */
+    .overview-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    .overview-box1 {
+        border-radius: 5px;
+     }
+    .overview-box {
+        display: none;
+    }
+    
+    /* 
+    Social Media Boosting Services 
+    HERE I ADDED THE STYLE FOR media boosting service in ENGAGEMENT CSS
+    AND LINKED IT HERE */
+      
+
+    /* Special Offers Section */
+    .offers-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+  
+}
