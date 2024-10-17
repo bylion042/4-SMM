@@ -4,59 +4,93 @@ document.getElementById('facebook-toggle').addEventListener('click', function() 
     toggleContent.style.display = toggleContent.style.display === 'none' ? 'block' : 'none';
 });
 
-// Service options mapping with delivery time
+
+
+
+// fully integrated version of your HTML and 
+// JavaScript to handle dynamic updates, service
+//  selection, price calculation, and discount calculation:
 const services = {
-    telegram: [
-        { value: '1602', text: '1602 - TG Premium start App - ≈ $6.9877 per 1000', price: 6.9877, deliveryTime: '2-4 days' },
-        { value: '1603', text: '1603 - TG Organic Members - ≈ $5.00 per 1000', price: 5.00, deliveryTime: '1-3 days' }
-    ],
     facebook: [
-        { value: 'fb_ads_basic', text: 'Facebook Ads Basic - ≈ $10 per campaign', price: 10, deliveryTime: '5-7 days' },
-        { value: 'fb_ads_premium', text: 'Facebook Ads Premium - ≈ $25 per campaign', price: 25, deliveryTime: '7-10 days' }
-    ],
-    instagram: [
-        { value: 'ig_followers_1000', text: '1000 Instagram Followers - ≈ $8.50', price: 8.50, deliveryTime: '3-5 days' },
-        { value: 'ig_likes_1000', text: '1000 Instagram Likes - ≈ $4.99', price: 4.99, deliveryTime: '1-2 days' }
+        { value: 'facebookview', text: 'Facebook Views - ≈ $0.20 per 1000', price: 0.20, deliveryTime: '50-90-sec', minQuantity: 100, maxQuantity: 10000 },
+        { value: 'facebookautolike', text: 'Facebook Auto Likes - ≈ $0.70 per 1000', price: 0.70, deliveryTime: '5-7-min', minQuantity: 50, maxQuantity: 5000 },
+        { value: 'facebookautoshear', text: 'Facebook Auto Shears - ≈ $0.60 per 1000', price: 0.60, deliveryTime: ' 8-9-min', minQuantity: 100, maxQuantity: 8000 },
+        { value: 'facebookprofilefollowers', text: 'Facebook Profile Followers - ≈ $0.80 per 1000', price: 0.80, deliveryTime: '10-15-min', minQuantity: 20, maxQuantity: 3000 },
+        { value: 'facebookpagefollowers', text: 'Facebook Page Followers - ≈ $0.90 per 1000', price: 0.90, deliveryTime: '15-20-min', minQuantity: 100, maxQuantity: 10000 }
     ]
 };
 
-// Update service dropdown based on category selection
+// Function to dynamically update the service dropdown based on category selection
 document.getElementById('category').addEventListener('change', function() {
-    const category = this.value;
+    const selectedCategory = this.value;
     const serviceDropdown = document.getElementById('service');
     
-    // Clear the current options
+    // Clear the existing service options
     serviceDropdown.innerHTML = '';
 
-    // Get the services for the selected category
-    const selectedServices = services[category] || [];
-
-    // Populate the service dropdown with new options
-    selectedServices.forEach(service => {
-        const option = document.createElement('option');
-        option.value = service.value;
-        option.textContent = service.text;
-        option.setAttribute('data-price', service.price);  // Store price as data attribute
-        option.setAttribute('data-delivery-time', service.deliveryTime);  // Store delivery time as data attribute
-        serviceDropdown.appendChild(option);
+    // Update the service dropdown with matching services
+    services.facebook.forEach(service => {
+        if (service.value === selectedCategory || selectedCategory === 'facebook') {
+            const option = document.createElement('option');
+            option.value = service.value;
+            option.text = service.text;
+            option.setAttribute('data-price', service.price);  // Attach price
+            option.setAttribute('data-delivery-time', service.deliveryTime);  // Attach delivery time
+            option.setAttribute('data-min-quantity', service.minQuantity);  // Attach min quantity
+            option.setAttribute('data-max-quantity', service.maxQuantity);  // Attach max quantity
+            serviceDropdown.appendChild(option);
+        }
     });
 
-    // Trigger initial calculation and delivery time display
+    // If no matching services are found, show default message
+    if (serviceDropdown.options.length === 0) {
+        const option = document.createElement('option');
+        option.text = 'No services available';
+        serviceDropdown.appendChild(option);
+    }
+
+    // Update charge, delivery time, and quantity limits
+    updateQuantityLimits();
     calculateCharge();
     displayDeliveryTime();
 });
 
+// Function to update the quantity input based on the selected service
+function updateQuantityLimits() {
+    const serviceDropdown = document.getElementById('service');
+    const selectedService = serviceDropdown.options[serviceDropdown.selectedIndex];
+    const minQuantity = selectedService ? selectedService.getAttribute('data-min-quantity') : 1;
+    const maxQuantity = selectedService ? selectedService.getAttribute('data-max-quantity') : 10000;
+
+    const quantityInput = document.getElementById('quantity');
+    quantityInput.min = minQuantity;
+    quantityInput.max = maxQuantity;
+    quantityInput.placeholder = `Min: ${minQuantity} - Max: ${maxQuantity} per user`;
+}
+
+// Function to calculate and update the charge based on selected service and quantity
 // Function to calculate and update the charge based on selected service and quantity
 function calculateCharge() {
     const serviceDropdown = document.getElementById('service');
     const selectedService = serviceDropdown.options[serviceDropdown.selectedIndex];
-    const pricePerUnit = selectedService ? selectedService.getAttribute('data-price') : 0;
-    
+    const pricePerThousand = selectedService ? selectedService.getAttribute('data-price') : 0;  // Price is per 1000 units
+
     const quantity = document.getElementById('quantity').value;
-    const charge = quantity * pricePerUnit;
+    
+    // Calculate charge as price per 1000 units, so divide quantity by 1000
+    const charge = (quantity / 1000) * pricePerThousand;
 
     document.getElementById('charge').value = `$${charge.toFixed(2)}`;
+
+    // Optional: Calculate and display any discount
+    const discount = calculateDiscount(quantity);
+    if (discount > 0) {
+        document.getElementById('discount-info').textContent = `You received a ${discount * 100}% discount!`;
+    } else {
+        document.getElementById('discount-info').textContent = '';
+    }
 }
+
 
 // Function to display delivery time
 function displayDeliveryTime() {
@@ -66,47 +100,24 @@ function displayDeliveryTime() {
     document.getElementById('delivery-time').textContent = deliveryTime;
 }
 
-// Trigger charge calculation and delivery time update when service or quantity changes
+// Discount calculation based on quantity
+function calculateDiscount(quantity) {
+    if (quantity >= 5000) {
+        return 0.10;  // 10% discount for orders of 5000 or more
+    } else if (quantity >= 1000) {
+        return 0.05;  // 5% discount for orders of 1000 or more
+    }
+    return 0;  // No discount
+}
+
+// Event listeners to update charge, delivery time, and quantity limits dynamically
 document.getElementById('service').addEventListener('change', function() {
+    updateQuantityLimits();
     calculateCharge();
     displayDeliveryTime();
 });
 
 document.getElementById('quantity').addEventListener('input', calculateCharge);
-
-
-
-
-
-
-// Live Charge Estimate and Discounts 
-function calculateDiscount(quantity) {
-    if (quantity >= 1000) {
-        return 0.10;  // 10% discount for orders of 10,000 or more
-    } else if (quantity >= 5000) {
-        return 0.05;  // 5% discount for orders of 5,000 or more
-    }
-    return 0;  // No discount
-}
-
-function calculateCharge() {
-    const serviceDropdown = document.getElementById('service');
-    const selectedService = serviceDropdown.options[serviceDropdown.selectedIndex];
-    const pricePerUnit = selectedService ? selectedService.getAttribute('data-price') : 0;
-
-    const quantity = document.getElementById('quantity').value;
-    const discount = calculateDiscount(quantity);
-    const charge = (quantity * pricePerUnit) * (1 - discount);
-
-    document.getElementById('charge').value = `$${charge.toFixed(2)}`;
-
-    if (discount > 0) {
-        document.getElementById('discount-info').textContent = `You received a ${discount * 100}% discount!`;
-    } else {
-        document.getElementById('discount-info').textContent = '';
-    }
-}
-
 
 
 

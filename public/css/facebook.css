@@ -52,7 +52,7 @@
     gap: 20px;
     width: 100%;
     border-top: 1px solid rgba(89, 92, 152, .2);
-    padding: 15px 0;
+    padding: 10px 0;
 
 }
 .search-bar {
@@ -69,12 +69,12 @@
     font-size: 15px;
 }
 .actions .search-btn {
-    padding: 10px 50px;
+    padding: 0 50px;
     background: #7474ac;
-    border-radius: 10px;
     color: #fff;
     font-size: large;
     border: none;
+    height: 2.60rem;
 }
 .actions .search-btn:hover {
     background: linear-gradient(113.36deg, #7f65e8 -12.22%, #b6a3ff 179.61%);
@@ -136,6 +136,8 @@ input,select{
     background: #7474ac;
     font-size: 15px;
     margin-top: 20px;
+    width: 100%;
+
 }
 
 
@@ -154,15 +156,14 @@ input,select{
    gap: 15px;
    color: #ccc;
 }
+.flex a{
+    color: #ccc;
+}
 #order-summary-modal h3{
     margin-bottom: 15px;
     font-weight: lighter;
     font-size: 20px;
 }
-
-
-
-
 
 
 
@@ -178,13 +179,11 @@ input,select{
     transform: translate(-50%, -50%);
     z-index: 1000;
 }
-
 /* Spinner appearance with a fade-in effect */
 #loading-spinner.active {
     display: flex;
     animation: fadeIn 0.5s ease-in-out forwards;
 }
-
 /* The CSS-based spinner */
 .spinner {
     width: 40px;
@@ -194,7 +193,6 @@ input,select{
     border-radius: 50%;
     animation: spin 1s linear infinite;
 }
-
 /* Keyframes for fade-in */
 @keyframes fadeIn {
     0% {
@@ -204,7 +202,6 @@ input,select{
         opacity: 1;
     }
 }
-
 /* Keyframes for the spinning effect */
 @keyframes spin {
     0% {
