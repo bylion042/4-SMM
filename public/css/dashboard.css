@@ -414,7 +414,7 @@ AND LINKED IT HERE */
         cursor: pointer;
     }
     .hamburger i {
-        font-size: 30px;
+        font-size: 25px;
         color: #ccc;
     }
 
@@ -434,14 +434,22 @@ AND LINKED IT HERE */
         width: 100%;
     }
     .profile-summary {
-        gap: 10px;
+        padding: 0 0;
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        color: #fff;
         margin-left: 0rem;
     }
+    
     .profile-pic {
-        width: 60px;
-        height: 60px;
+        width: 50px;
+        height: 50px;
         border-radius: 50%;
         border: 2px solid #7474ac;
+    }
+    .profile-summary h2{
+        font-weight: lighter;
     }
 
 
@@ -458,6 +466,8 @@ AND LINKED IT HERE */
         display: none;
     }
 
+
+    
     /* 
     Social Media Boosting Services 
     HERE I ADDED THE STYLE FOR media boosting service in ENGAGEMENT CSS

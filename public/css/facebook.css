@@ -196,3 +196,22 @@ option{
 option:hover{
     background-color: #7474ac;
 }
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 800px) {
+    .social-network h1 {
+        color: #fff;
+        margin-bottom: 10px;
+        font-size: x-large;
+        font-weight: lighter;
+    }
+
+}
