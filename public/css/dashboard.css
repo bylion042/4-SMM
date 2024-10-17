@@ -382,7 +382,7 @@ AND LINKED IT HERE */
         position: fixed;
         top: 0;
         left: -100%;
-        width: 330px;
+        width: 310px;
         height: 100%;
         background: linear-gradient(113.36deg, #000002 -12.22%, #9685de 179.61%);
         transition: left 0.7s ease-in-out;
@@ -437,7 +437,7 @@ AND LINKED IT HERE */
         padding: 0 0;
         display: flex;
         align-items: center;
-        gap: 30px;
+        gap: 10px;
         color: #fff;
         margin-left: 0rem;
     }
@@ -449,11 +449,14 @@ AND LINKED IT HERE */
         border: 2px solid #7474ac;
     }
     .profile-summary h2{
-        font-weight: lighter;
+        font-weight: 500;
     }
 
 
     /* Account Overview Section */
+    .account-overview h2{
+        font-weight: 500;
+    }
     .overview-grid {
         display: flex;
         flex-direction: column;
@@ -465,6 +468,19 @@ AND LINKED IT HERE */
     .overview-box {
         display: none;
     }
+    .hold h3{
+        font-weight: 500;
+    }
+   .fund-btn {
+    background: #7474ac;
+    border: 1px solid rgba(89, 92, 152, .2);
+    font-weight: 500;
+    color: white;
+    padding: 10px 100px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
 
 
     
