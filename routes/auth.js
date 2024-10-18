@@ -3,6 +3,7 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/User');
 const bcrypt = require('bcrypt');
+const axios = require('axios'); // Add axios for making HTTP requests
 
 
 
@@ -94,6 +95,40 @@ router.get('/logout', (req, res) => {
         }
         res.redirect('/login'); // Redirect to login after successful logout
     });
+});
+
+
+
+
+
+
+
+
+// Handle payment verification
+router.post('/verify-payment', async (req, res) => {
+    const { reference } = req.body;
+
+    try {
+        const response = await axios.get(`https://api.paystack.co/transaction/verify/${reference}`, {
+            headers: {
+                Authorization: `sk_live_b8a7aaf869c1b0342d0c0863f0651301aea29f76` // Replace with your Paystack secret key
+            }
+        });
+
+        if (response.data.data.status === 'success') {
+            const amountPaid = response.data.data.amount / 100; // Convert from kobo to Naira
+            // Update user balance
+            const user = await User.findById(req.session.userId);
+            user.balance = (user.balance || 0) + amountPaid;
+            await user.save();
+
+            res.json({ status: 'success', newBalance: user.balance });
+        } else {
+            res.json({ status: 'failure' });
+        }
+    } catch (error) {
+        res.json({ status: 'failure' });
+    }
 });
 
 
