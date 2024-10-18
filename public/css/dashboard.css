@@ -332,15 +332,15 @@ AND LINKED IT HERE */
 
 .offer-box h3 {
     font-size: 17px;
-    font-weight: lighter;
+    font-weight: bold;
     margin-bottom: 8px;
-    color: #a8a7a7;
+    color: #ccc;
     padding: 0px 0;
 }
 
 .offer-box p {
     font-size: 15px;
-    color: #a8a7a7;
+    color: #ccc;
     margin-bottom: 20px;
     border-bottom: 1px solid rgba(89, 92, 152, .2);
     padding: 15px 0;
@@ -349,7 +349,7 @@ AND LINKED IT HERE */
 .offer-btn {
     background: #7474ac;
     border: 1px solid rgba(89, 92, 152, .2);
-    color: #ccc;
+    color: #fff;
     padding: 10px 40px;
     border: none;
     border-radius: 5px;
@@ -464,10 +464,25 @@ AND LINKED IT HERE */
         border-radius: 5px;
     }
     .overview-box {
+        background: rgba(64, 66, 98, 0.4);
+        border-radius: 5px;
+        padding: 10px;
+        margin: 0;
+    }
+    .overview-box i {
         display: none;
+    }
+    .hold{
+        width: 100%;
+    }
+    .active-2 .hold p{
+     padding: 5px;
     }
     .hold h3{
         font-weight: 500;
+        border-bottom: 1px solid rgba(117, 118, 134, 0.4);
+        padding: 5px;
+        width: 100%;
     }
    .fund-btn {
     background: #7474ac;
@@ -479,6 +494,7 @@ AND LINKED IT HERE */
     border-radius: 5px;
     cursor: pointer;
 }
+
 
 
     
