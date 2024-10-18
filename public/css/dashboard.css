@@ -484,11 +484,11 @@ AND LINKED IT HERE */
     }
     .overview-box .hold p{
      font-size: 15px;
-     font-weight: lighter;
+     font-weight: 500;
     }
 
     .overview-box .hold h3{
-        font-weight: lighter;
+        font-weight: 500;
         border-bottom: 1px solid rgba(117, 118, 134, 0.4);
         padding: 5px;
         width: 100%;
@@ -518,7 +518,7 @@ AND LINKED IT HERE */
         font-weight: bold;
     }
     .offer-box h3 {
-        font-weight: lighter;
+        font-weight: 500;
         font-size: 18px;
     }    
     .offers-grid {
