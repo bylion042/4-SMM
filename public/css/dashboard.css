@@ -370,7 +370,7 @@ AND LINKED IT HERE */
 @media (max-width: 800px) {
     .contain-hamburger {
         display: block;
-        padding: 20px 20px;
+        padding: 10px 20px;
         display: flex;
         flex-direction: row-reverse;
         justify-content: center;
@@ -448,6 +448,10 @@ AND LINKED IT HERE */
     }
     .profile-summary h2{
         font-weight: 500;
+        font-size: 20px;
+    }
+    .profile-summary p{
+        font-size: 15px;
     }
 
 
@@ -478,8 +482,13 @@ AND LINKED IT HERE */
     .active-2 .hold p{
      padding: 5px;
     }
-    .hold h3{
-        font-weight: 500;
+    .overview-box .hold p{
+     font-size: 15px;
+     font-weight: lighter;
+    }
+
+    .overview-box .hold h3{
+        font-weight: lighter;
         border-bottom: 1px solid rgba(117, 118, 134, 0.4);
         padding: 5px;
         width: 100%;
@@ -505,6 +514,13 @@ AND LINKED IT HERE */
 
 
     /* Special Offers Section */
+    .special-offers h2{
+        font-weight: bold;
+    }
+    .offer-box h3 {
+        font-weight: lighter;
+        font-size: 18px;
+    }    
     .offers-grid {
         display: flex;
         flex-direction: column;
