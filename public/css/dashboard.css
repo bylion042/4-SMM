@@ -148,7 +148,7 @@ footer {
 /* Main Content */
 .main-content {
     flex-grow: 1;
-    padding: 20px;
+    padding: 10px;
     margin-left: 250px;
     transition: margin-left 0.2s ease;
     background-size: cover;
@@ -394,7 +394,7 @@ AND LINKED IT HERE */
         display: flex;
         flex-direction: column;
         padding: 20px;
-        margin-top: 5rem;
+        margin-top: 4rem;
     }
     .menu a {
         margin-bottom: 10px;
@@ -417,8 +417,6 @@ AND LINKED IT HERE */
         font-size: 25px;
         color: #ccc;
     }
-
-
     .sidebar {
         display: none;
     }
