@@ -212,6 +212,40 @@ option:hover{
         margin-bottom: 10px;
         font-size: x-large;
         font-weight: 500;
+        width: 100%;
     }
 
+    .summary{
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        border: 1px solid rgba(89, 92, 152, .2);
+    }
+    .toggle-content {
+        width: 100%;
+    }    
+    #order-summary-modal{
+        width: 100%;
+        height: 50%;
+        margin-top: 5rem;
+        padding: 20px 10px;
+        border-left: none;
+        border-top: 1px solid  rgba(146, 150, 236, 0.2);
+        margin: 0;
+    }
+    .flex{
+       display: flex;
+       flex-direction: column;
+       gap: 15px;
+       color: #ccc;
+    }
+    .flex a{
+        color: #ccc;
+    }
+    #order-summary-modal h3{
+        margin-bottom: 15px;
+        font-weight: lighter;
+        font-size: 20px;
+    }
+    
 }

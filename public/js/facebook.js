@@ -159,10 +159,10 @@ function validateForm() {
             close: true,
             gravity: "top",
             position: "right",
-            backgroundColor: "#7474ac",  
+            backgroundColor: "#7474ac",
             style: {
                 borderRadius: "5px",
-                fontSize: "15px"
+                fontSize: "13px",
             }
         }).showToast();
         return false; // Form is not valid
@@ -209,10 +209,10 @@ function processOrder() {
                 close: true,
                 gravity: "top",
                 position: "right",
-                backgroundColor: "#7474ac",  
+                backgroundColor: "#7474ac",
                 style: {
                     borderRadius: "10px",
-                    fontSize: "15px"
+                    fontSize: "15px",
                 }
             }).showToast();
         } else {
@@ -226,7 +226,7 @@ function processOrder() {
                 backgroundColor: "#7474ac",  // Green background for success
                 style: {
                     borderRadius: "10px",
-                    fontSize: "15px"
+                    fontSize: "15px",
                 }
             }).showToast();
 
