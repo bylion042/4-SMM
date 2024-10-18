@@ -381,15 +381,15 @@ AND LINKED IT HERE */
 }
 
 .modal-content {
-    background-color: #fefefe;
+    background: linear-gradient(113.36deg, #000002 -12.22%, #9685de 179.61%);
     margin: auto;
     padding: 20px;
-    border: 1px solid #888;
+    border: 1px solid #ccc;
     width: 80%;
 }
 
 .close {
-    color: #aaa;
+    color: #ccc;
     float: right;
     font-size: 28px;
     font-weight: bold;
@@ -401,8 +401,20 @@ AND LINKED IT HERE */
     text-decoration: none;
     cursor: pointer;
 }
-
-
+#paymentForm button{
+    background: #7474ac;
+    border: 1px solid rgba(89, 92, 152, .2);
+    font-weight: bold;
+    color: white;
+    padding: 10px 60px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+#paymentform button:hover {
+    background: linear-gradient(113.36deg, #7f65e8 -12.22%, #b6a3ff 179.61%);
+}
 
 
 
