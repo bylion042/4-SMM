@@ -1,91 +1,64 @@
-<!-- <div class="grid"> -->
-<div class="network facebook active" id="facebook-toggle">
-    <i class="fa-brands fa-facebook"></i> Facebook
-</div>
-
-
-            <div class="network youtube">
-                <i class="fa-brands fa-youtube"></i>YouTube
-            </div>
-            <div class="network tiktok">
-                <i class="fa-brands fa-tiktok"></i>TikTok
-            </div>
-            <div class="network twitter">
-                <i class="fa-brands fa-twitter"></i>X / Twitter
-            </div>
-            <div class="network instagram">
-                <i class="fa-brands fa-instagram"></i>Instagram
-            </div>
-            <div class="network everything">
-                <i class="fa-regular fa-heart"></i>Everything
-            </div>
-            <div class="network telegram">
-                <i class="fa-brands fa-telegram"></i>Telegram
-            </div>
-            <div class="network discord">
-                <i class="fa-brands fa-discord"></i>Discord
-            </div>
-            <div class="network reddit">
-                <i class="fa-brands fa-reddit-alien"></i>Reddit
-            </div>
-
-
-<div class="summary">
-    <div class="toggle-content" id="toggle-content" style="display: none;">
-        <div class="dropdown">
-            <label for="category">Category</label>
-            <select id="category">
-                <option value="facebook">⭐ Facebook services available </option>
-                <option value="facebookview">⭐ Facebook views</option>
-                <option value="facebookautolike">⭐ Facebook auto likes</option>
-                <option value="facebookautoshear">⭐ Facebook auto shears</option>
-                <option value="facebookprofilefollowers">⭐ Facebook profile folllower </option>
-                <option value="facebookpagefollowers">⭐ Facebook page followers</option>
-            </select>
-        </div>
-
-        <div class="dropdown">
-            <label for="service">Service</label>
-            <select id="service"></select>
-        </div>
-
-        <div class="link-input">
-            <label for="link">Link</label>
-            <input type="text" id="link" placeholder="Enter the link here" />
-        </div>
-
-        <div class="quantity-input">
-            <label for="quantity">Quantity</label>
-            <input type="number" id="quantity" min="1" max="10000" placeholder="Min: 1 - Max: 10,000 per user" />
-        </div>
-
-        <div class="charge-field">
-            <label for="charge">Charge</label>
-            <input type="text" id="charge" readonly />
-        </div>
-
-        <div class="delivery-time">
-            <label>Estimated Delivery Time: </label>
-            <span id="delivery-time"></span>
-        </div>
-
-        <div id="discount-info"></div>
-        <button id="submit-btn" class="submit-btn">Submit</button>
+<div class="grid">
+    <div class="network facebook active" id="facebook-toggle">
+        <i class="fa-brands fa-facebook"></i> Facebook
     </div>
 
-    <div id="order-summary-modal" style="display:none;">
-        <div class="flex">
-            <h3>Order Summary</h3>
-            <p>Service: <span id="summary-service"></span></p>
-            <p>Link: <a id="summary-link" href="#" target="_blank"></a></p>
-            <p>Quantity: <span id="summary-quantity"></span></p>
-            <p>Total Charge: <span id="summary-charge"></span></p>
-            <p>Estimated Delivery: <span id="summary-delivery"></span></p>
-        </div>
-        <button id="confirm-order">Confirm Order</button>
-    </div>
-</div>
+    <div class="summary">
+        <div class="toggle-content" id="facebook-toggle-content" style="display: none;">
+            <div class="dropdown">
+                <label for="facebook-category">Category</label>
+                <select id="facebook-category">
+                    <option value="facebook">⭐ Facebook services available</option>
+                    <option value="facebooklikes">⭐ Facebook Likes</option>
+                    <option value="facebookfollowers">⭐ Facebook Followers</option>
+                    <option value="facebookshares">⭐ Facebook Shares</option>
+                    <option value="facebookcomments">⭐ Facebook Comments</option>
+                </select>
+            </div>
 
-<div id="loading-spinner" style="display:none;">
-    <div class="spinner"></div>
+            <div class="dropdown">
+                <label for="facebook-service">Service</label>
+                <select id="facebook-service"></select>
+            </div>
+
+            <div class="link-input">
+                <label for="facebook-link">Link</label>
+                <input type="text" id="facebook-link" placeholder="Enter the link here" />
+            </div>
+
+            <div class="quantity-input">
+                <label for="facebook-quantity">Quantity</label>
+                <input type="number" id="facebook-quantity" min="1" max="10000" placeholder="Min: 1 - Max: 10,000 per user" />
+            </div>
+
+            <div class="charge-field">
+                <label for="facebook-charge">Charge</label>
+                <input type="text" id="facebook-charge" readonly />
+            </div>
+
+            <div class="delivery-time">
+                <label>Estimated Delivery Time: </label>
+                <span id="facebook-delivery-time"></span>
+            </div>
+
+            <div id="facebook-discount-info"></div>
+            <button id="facebook-submit-btn" class="submit-btn">Submit</button>
+        </div>
+
+        <div id="facebook-order-summary-modal" style="display:none;">
+            <div class="flex">
+                <h3>Order Summary</h3>
+                <p>Service: <span id="facebook-summary-service"></span></p>
+                <p>Link: <a id="facebook-summary-link" href="#" target="_blank"></a></p>
+                <p>Quantity: <span id="facebook-summary-quantity"></span></p>
+                <p>Total Charge: <span id="facebook-summary-charge"></span></p>
+                <p>Estimated Delivery: <span id="facebook-summary-delivery"></span></p>
+            </div>
+            <button id="facebook-confirm-order">Confirm Order</button>
+        </div>
+    </div>
+
+    <div id="facebook-loading-spinner" style="display:none;">
+        <div class="spinner"></div>
+    </div>
 </div>

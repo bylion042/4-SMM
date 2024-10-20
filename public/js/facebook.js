@@ -1,28 +1,28 @@
 // Toggle content visibility for Facebook
 document.getElementById('facebook-toggle').addEventListener('click', function() {
-    let toggleContent = document.getElementById('toggle-content');
+    let toggleContent = document.getElementById('facebook-toggle-content');
     toggleContent.style.display = toggleContent.style.display === 'none' ? 'block' : 'none';
 });
 
 // Define services for Facebook
-let services = {
+let facebookServices = {
     facebook: [
-        { value: 'facebookview', text: 'Facebook Views - ≈ $0.20 per 1000', price: 0.20, deliveryTime: '50-90-sec', minQuantity: 100, maxQuantity: 10000 },
-        { value: 'facebookautolike', text: 'Facebook Auto Likes - ≈ $0.70 per 1000', price: 0.70, deliveryTime: '5-7-min', minQuantity: 100, maxQuantity: 10000 },
-        { value: 'facebookautoshear', text: 'Facebook Auto Shears - ≈ $0.60 per 1000', price: 0.60, deliveryTime: '8-9-min', minQuantity: 100, maxQuantity: 10000 },
-        { value: 'facebookprofilefollowers', text: 'Facebook Profile Followers - ≈ $0.80 per 1000', price: 0.80, deliveryTime: '10-15-min', minQuantity: 100, maxQuantity: 10000 },
-        { value: 'facebookpagefollowers', text: 'Facebook Page Followers - ≈ $0.90 per 1000', price: 0.90, deliveryTime: '15-20-min', minQuantity: 100, maxQuantity: 10000 }
+        { value: 'facebooklikes', text: 'Facebook Likes - ≈ $0.05 each', price: 0.05, deliveryTime: '10-30 min', minQuantity: 1, maxQuantity: 10000 },
+        { value: 'facebookfollowers', text: 'Facebook Followers - ≈ $0.50 each', price: 0.50, deliveryTime: '15-45 min', minQuantity: 1, maxQuantity: 10000 },
+        { value: 'facebookshares', text: 'Facebook Shares - ≈ $0.10 each', price: 0.10, deliveryTime: '10-20 min', minQuantity: 1, maxQuantity: 10000 },
+        { value: 'facebookcomments', text: 'Facebook Comments - ≈ $0.15 each', price: 0.15, deliveryTime: '5-10 min', minQuantity: 1, maxQuantity: 10000 }
     ]
 };
 
 // Function to dynamically update the service dropdown based on category selection
-document.getElementById('category').addEventListener('change', function() {
+document.getElementById('facebook-category').addEventListener('change', function() {
     let selectedCategory = this.value;
-    let serviceDropdown = document.getElementById('service');
-    
-    serviceDropdown.innerHTML = ''; // Clear the existing service options
+    let serviceDropdown = document.getElementById('facebook-service');
 
-    services.facebook.forEach(service => {
+    serviceDropdown.innerHTML = ''; // Clear existing options
+
+    // Populate the services based on the category selected
+    facebookServices.facebook.forEach(service => {
         if (service.value === selectedCategory || selectedCategory === 'facebook') {
             let option = document.createElement('option');
             option.value = service.value;
@@ -41,211 +41,123 @@ document.getElementById('category').addEventListener('change', function() {
         serviceDropdown.appendChild(option);
     }
 
-    updateQuantityLimits();
-    calculateCharge();
-    displayDeliveryTime();
+    // Update quantity limits and calculate charge
+    updateFacebookQuantityLimits();
+    calculateFacebookCharge();
+    displayFacebookDeliveryTime();
 });
 
 // Function to update the quantity input based on the selected Facebook service
-function updateQuantityLimits() {
-    let serviceDropdown = document.getElementById('service');
+function updateFacebookQuantityLimits() {
+    let serviceDropdown = document.getElementById('facebook-service');
     let selectedService = serviceDropdown.options[serviceDropdown.selectedIndex];
     let minQuantity = selectedService ? selectedService.getAttribute('data-min-quantity') : 1;
     let maxQuantity = selectedService ? selectedService.getAttribute('data-max-quantity') : 10000;
 
-    let quantityInput = document.getElementById('quantity');
+    let quantityInput = document.getElementById('facebook-quantity');
     quantityInput.min = minQuantity;
     quantityInput.max = maxQuantity;
     quantityInput.placeholder = `Min: ${minQuantity} - Max: ${maxQuantity} per user`;
 }
 
 // Function to calculate and update the charge based on selected service and quantity for Facebook
-function calculateCharge() {
-    let serviceDropdown = document.getElementById('service');
+function calculateFacebookCharge() {
+    let serviceDropdown = document.getElementById('facebook-service');
     let selectedService = serviceDropdown.options[serviceDropdown.selectedIndex];
-    let pricePerThousand = selectedService ? selectedService.getAttribute('data-price') : 0;
+    let pricePerUnit = selectedService ? selectedService.getAttribute('data-price') : 0;
 
-    let quantity = document.getElementById('quantity').value;
+    let quantity = document.getElementById('facebook-quantity').value;
     
-    let charge = (quantity / 1000) * pricePerThousand;
-    document.getElementById('charge').value = `$${charge.toFixed(2)}`;
+    let charge = quantity * pricePerUnit;
+    document.getElementById('facebook-charge').value = `$${charge.toFixed(2)}`;
 
-    let discount = calculateDiscount(quantity);
+    let discount = calculateFacebookDiscount(quantity);
     if (discount > 0) {
-        document.getElementById('discount-info').textContent = `You received a ${discount * 100}% discount!`;
+        document.getElementById('facebook-discount-info').textContent = `You received a ${discount * 100}% discount!`;
     } else {
-        document.getElementById('discount-info').textContent = '';
+        document.getElementById('facebook-discount-info').textContent = '';
     }
 }
 
 // Function to display delivery time for the selected Facebook service
-function displayDeliveryTime() {
-    let serviceDropdown = document.getElementById('service');
+function displayFacebookDeliveryTime() {
+    let serviceDropdown = document.getElementById('facebook-service');
     let selectedService = serviceDropdown.options[serviceDropdown.selectedIndex];
     let deliveryTime = selectedService ? selectedService.getAttribute('data-delivery-time') : '';
-    document.getElementById('delivery-time').textContent = deliveryTime;
+    document.getElementById('facebook-delivery-time').textContent = deliveryTime;
 }
 
-// Function to calculate discount based on quantity
-function calculateDiscount(quantity) {
+// Function to calculate discount based on quantity for Facebook
+function calculateFacebookDiscount(quantity) {
     if (quantity >= 5000) {
-        return 0.10;
+        return 0.10; // 10% discount
     } else if (quantity >= 1000) {
-        return 0.05;
+        return 0.05; // 5% discount
     }
     return 0;
 }
 
-// Event listeners
-document.getElementById('service').addEventListener('change', function() {
-    updateQuantityLimits();
-    calculateCharge();
-    displayDeliveryTime();
+// Event listeners for updating charge and delivery time dynamically
+document.getElementById('facebook-service').addEventListener('change', function() {
+    updateFacebookQuantityLimits();
+    calculateFacebookCharge();
+    displayFacebookDeliveryTime();
 });
 
-document.getElementById('quantity').addEventListener('input', calculateCharge);
+document.getElementById('facebook-quantity').addEventListener('input', calculateFacebookCharge);
 
-// Order Summary Pop-up or Modal
-document.getElementById('submit-btn').addEventListener('click', function() {
-    let serviceDropdown = document.getElementById('service');
-    let selectedServiceText = serviceDropdown.options[serviceDropdown.selectedIndex].textContent;
-    let quantity = document.getElementById('quantity').value;
-    let charge = document.getElementById('charge').value;
-    let deliveryTime = document.getElementById('delivery-time').textContent;
-    let link = document.getElementById('link').value;
+// Order Summary Pop-up or Modal for Facebook
+document.getElementById('facebook-submit-btn').addEventListener('click', function() {
+    // Validation: Check if all fields are filled
+    let link = document.getElementById('facebook-link').value;
+    let quantity = document.getElementById('facebook-quantity').value;
 
-    document.getElementById('summary-service').textContent = selectedServiceText;
-    document.getElementById('summary-link').textContent = link;
-    document.getElementById('summary-quantity').textContent = quantity;
-    document.getElementById('summary-charge').textContent = charge;
-    document.getElementById('summary-delivery').textContent = deliveryTime;
-
-    document.getElementById('order-summary-modal').style.display = 'block';
-});
-
-
-
-
-
-
-
-
-
-
-
-// Function to show the spinner
-function showSpinner(show) {
-    const spinner = document.getElementById('loading-spinner');
-    if (spinner) {
-        spinner.style.display = show ? 'block' : 'none';
-    }
-}
-
-
-
-
-// Function to validate the form
-function validateForm() {
-    const service = document.getElementById('service').value;
-    const link = document.getElementById('link').value;
-    const quantity = document.getElementById('quantity').value;
-
-    // Check for empty fields
-    if (!service || !link || !quantity) {
-        // Show error toast for empty fields
+    if (!link || !quantity) {
         Toastify({
-            text: "Please fill in all fields before submitting.",
+            text: "Please fill in all fields!",
             duration: 3000,
-            close: true,
+            backgroundColor: "red",
             gravity: "top",
-            position: "right",
-            backgroundColor: "#7474ac",
-            style: {
-                borderRadius: "5px",
-                fontSize: "13px",
-            }
+            position: "right"
         }).showToast();
-        return false; // Form is not valid
+        return;
     }
-    return true; // Form is valid
-}
 
-// Function to display the order summary
-function displayOrderSummary() {
-    const serviceDropdown = document.getElementById('service');
-    const selectedService = serviceDropdown.options[serviceDropdown.selectedIndex].text;
-    const link = document.getElementById('link').value;
-    const quantity = document.getElementById('quantity').value;
-    const charge = document.getElementById('charge').value;
-    const deliveryTime = document.getElementById('summary-delivery').textContent;
+    let serviceDropdown = document.getElementById('facebook-service');
+    let selectedServiceText = serviceDropdown.options[serviceDropdown.selectedIndex].textContent;
+    let charge = document.getElementById('facebook-charge').value;
+    let deliveryTime = document.getElementById('facebook-delivery-time').textContent;
 
-    // Populate the summary modal
-    document.getElementById('summary-service').textContent = selectedService;
-    document.getElementById('summary-link').textContent = link;
-    document.getElementById('summary-quantity').textContent = quantity;
-    document.getElementById('summary-charge').textContent = charge;
-    document.getElementById('summary-delivery').textContent = deliveryTime;
+    document.getElementById('facebook-summary-service').textContent = selectedServiceText;
+    document.getElementById('facebook-summary-link').textContent = link;
+    document.getElementById('facebook-summary-quantity').textContent = quantity;
+    document.getElementById('facebook-summary-charge').textContent = charge;
+    document.getElementById('facebook-summary-delivery').textContent = deliveryTime;
 
-    // Show the summary modal
-    document.getElementById('order-summary-modal').style.display = 'block';
-}
+    document.getElementById('facebook-order-summary-modal').style.display = 'block';
+});
 
-// Function to process the order after confirmation
-function processOrder() {
-    showSpinner(true);  // Show spinner during processing
+// Function to process the Facebook order after confirmation
+function processFacebookOrder() {
+    showFacebookSpinner(true);  // Show spinner during processing
 
-    // Simulating network processing with setTimeout
     setTimeout(function() {
-        showSpinner(false);  // Stop spinner
-
-        // Simulating a network issue with a random condition (10% chance)
-        const networkIssue = Math.random() < 0.1;
-
-        if (networkIssue) {
-            // Show error toast for network issue
-            Toastify({
-                text: "Network error, please try again later.",
-                duration: 3000,
-                close: true,
-                gravity: "top",
-                position: "right",
-                backgroundColor: "#7474ac",
-                style: {
-                    borderRadius: "10px",
-                    fontSize: "15px",
-                }
-            }).showToast();
-        } else {
-            // Success toast for order processed
-            Toastify({
-                text: "Order processed successfully!",
-                duration: 3000,
-                close: true,
-                gravity: "top",
-                position: "right",
-                backgroundColor: "#7474ac",  // Green background for success
-                style: {
-                    borderRadius: "10px",
-                    fontSize: "15px",
-                }
-            }).showToast();
-
-            // Hide the summary modal after processing
-            document.getElementById('order-summary-modal').style.display = 'none';
-        }
-    }, 2000);  // Simulating 2 seconds of processing
+        showFacebookSpinner(false);  // Hide spinner after processing
+        Toastify({
+            text: "Order has been processed successfully!",
+            duration: 3000,
+            backgroundColor: "green",
+            gravity: "top",
+            position: "right"
+        }).showToast();
+        document.getElementById('facebook-order-summary-modal').style.display = 'none';  // Hide the summary modal
+    }, 2000); // Simulate an API call
 }
 
-// Event listener for Submit button
-document.getElementById('submit-btn').addEventListener('click', function() {
-    if (validateForm()) {
-        displayOrderSummary();  // Show summary if form is valid
-    }
-});
+// Confirm order event listener for Facebook
+document.getElementById('facebook-confirm-order').addEventListener('click', processFacebookOrder);
 
-// Event listener for Confirm Order button
-document.getElementById('confirm-order').addEventListener('click', function() {
-    if (validateForm()) {  // Ensure the form is validated before processing
-        processOrder();  // Process the order after confirming
-    }
-});
+// Function to show/hide loading spinner for Facebook
+function showFacebookSpinner(show) {
+    document.getElementById('facebook-loading-spinner').style.display = show ? 'block' : 'none';
+}

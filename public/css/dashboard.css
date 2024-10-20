@@ -365,7 +365,7 @@ AND LINKED IT HERE */
 
 
 
-/* Modal styles */
+/* Modal styles for paystack */
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
@@ -415,14 +415,6 @@ AND LINKED IT HERE */
 #paymentform button:hover {
     background: linear-gradient(113.36deg, #7f65e8 -12.22%, #b6a3ff 179.61%);
 }
-
-
-
-
-
-
-
-
 
 
 

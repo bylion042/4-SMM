@@ -1,0 +1,61 @@
+<div class="network youtube" id="youtube-toggle">
+    <i class="fa-brands fa-youtube"></i> YouTube
+</div>
+
+<div class="summary">
+    <div class="toggle-content" id="youtube-toggle-content" style="display: none;">
+        <div class="dropdown">
+            <label for="category">Category</label>
+            <select id="youtube-category">
+                <option value="youtube">⭐ YouTube services available</option>
+                <option value="youtubeviews">⭐ YouTube views</option>
+                <option value="youtubecomments">⭐ YouTube comments</option>
+                <option value="youtubeSubscribers">⭐ YouTube Subscribers</option>
+            </select>
+        </div>
+
+        <div class="dropdown">
+            <label for="service">Service</label>
+            <select id="youtube-service"></select>
+        </div>
+
+        <div class="link-input">
+            <label for="link">Link</label>
+            <input type="text" id="youtube-link" placeholder="Enter the link here" />
+        </div>
+
+        <div class="quantity-input">
+            <label for="quantity">Quantity</label>
+            <input type="number" id="youtube-quantity" min="1" max="10000" placeholder="Min: 1 - Max: 10,000 per user" />
+        </div>
+
+        <div class="charge-field">
+            <label for="charge">Charge</label>
+            <input type="text" id="youtube-charge" readonly />
+        </div>
+
+        <div class="delivery-time">
+            <label>Estimated Delivery Time: </label>
+            <span id="youtube-delivery-time"></span>
+        </div>
+
+        <div id="youtube-discount-info"></div>
+        <button id="youtube-submit-btn" class="submit-btn">Submit</button>
+    </div>
+
+    <div id="youtube-order-summary-modal" style="display:none;">
+        <div class="flex">
+            <h3>Order Summary</h3>
+            <p>Service: <span id="youtube-summary-service"></span></p>
+            <p>Link: <a id="youtube-summary-link" href="#" target="_blank"></a></p>
+            <p>Quantity: <span id="youtube-summary-quantity"></span></p>
+            <p>Total Charge: <span id="youtube-summary-charge"></span></p>
+            <p>Estimated Delivery: <span id="youtube-summary-delivery"></span></p>
+        </div>
+        <button id="youtube-confirm-order">Confirm Order</button>
+    </div>
+</div>
+
+<div id="youtube-loading-spinner" style="display:none;">
+    <div class="spinner"></div>
+</div>

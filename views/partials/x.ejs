@@ -1,0 +1,61 @@
+<div class="network twitter" id="twitter-toggle">
+    <i class="fa-brands fa-twitter"></i> X / Twitter
+</div>
+
+<div class="summary">
+    <div class="toggle-content" id="twitter-toggle-content" style="display: none;">
+        <div class="dropdown">
+            <label for="twitter-category">Category</label>
+            <select id="twitter-category">
+                <option value="twitter">⭐ Twitter services available</option>
+                <option value="twitterlikes">⭐ Twitter likes</option>
+                <option value="twitterretweets">⭐ Twitter retweets</option>
+                <option value="twitterfollowers">⭐ Twitter followers</option>
+            </select>
+        </div>
+
+        <div class="dropdown">
+            <label for="twitter-service">Service</label>
+            <select id="twitter-service"></select>
+        </div>
+
+        <div class="link-input">
+            <label for="twitter-link">Link</label>
+            <input type="text" id="twitter-link" placeholder="Enter the link here" />
+        </div>
+
+        <div class="quantity-input">
+            <label for="twitter-quantity">Quantity</label>
+            <input type="number" id="twitter-quantity" min="1" max="10000" placeholder="Min: 1 - Max: 10,000 per user" />
+        </div>
+
+        <div class="charge-field">
+            <label for="twitter-charge">Charge</label>
+            <input type="text" id="twitter-charge" readonly />
+        </div>
+
+        <div class="delivery-time">
+            <label>Estimated Delivery Time: </label>
+            <span id="twitter-delivery-time"></span>
+        </div>
+
+        <div id="twitter-discount-info"></div>
+        <button id="twitter-submit-btn" class="submit-btn">Submit</button>
+    </div>
+
+    <div id="twitter-order-summary-modal" style="display:none;">
+        <div class="flex">
+            <h3>Order Summary</h3>
+            <p>Service: <span id="twitter-summary-service"></span></p>
+            <p>Link: <a id="twitter-summary-link" href="#" target="_blank"></a></p>
+            <p>Quantity: <span id="twitter-summary-quantity"></span></p>
+            <p>Total Charge: <span id="twitter-summary-charge"></span></p>
+            <p>Estimated Delivery: <span id="twitter-summary-delivery"></span></p>
+        </div>
+        <button id="twitter-confirm-order">Confirm Order</button>
+    </div>
+</div>
+
+<div id="twitter-loading-spinner" style="display:none;">
+    <div class="spinner"></div>
+</div>
