@@ -6,11 +6,13 @@
     padding: 20px;
     width: 100%;
 }
+
 .social-network h1 {
     color: #fff;
     margin-bottom: 10px;
     font-size: xx-large;
 }
+
 .social-network h2 {
     color: #fff;
     margin-bottom: 10px;
@@ -18,13 +20,14 @@
     padding: 10px 0;
     border-top: 1px solid rgba(89, 92, 152, .2);
 }
+
 .grid {
     display: flex;
     flex-direction: column;
     grid-template-columns: repeat(3, 1fr);
     gap: 15px;
-    /* margin-bottom: 40px; */
 }
+
 .network {
     background: rgba(64, 66, 98, 0.4);
     border: 1px solid rgba(89, 92, 152, .2);
@@ -35,19 +38,23 @@
     transition: background-color 0.3s;
     color: #ccc;
 }
+
 .network i {
     padding: 0 10px;
     font-size: 22px;
 }
+
 .network:hover {
     background-color: #7474ac;
     color: #fff;
 }
+
 /* Active class */
 .network.active {
     background: linear-gradient(113.36deg, #7f65e8 -12.22%, #b6a3ff 179.61%);
     color: #fff;
 }
+
 .actions {
     display: flex;
     gap: 20px;
@@ -62,8 +69,8 @@
 
 
 
-/* FOR MY TOGGLE ENGAGEMENT  */
-.summary{
+/* General Styles for Toggle Engagement */
+.summary {
     display: flex;
     padding: 0 10px;
     gap: 5rem;
@@ -74,18 +81,19 @@
 .toggle-content {
     margin: 15px 0;
     width: 60%;
-    border-radius: 10px;
     padding: 20px 15px;
-    /* border: 1px solid rgba(89, 92, 152, .2); */
-    border-radius: 5px;
+    border-radius: 10px;
+    background-color: rgba(64, 66, 98, 0.4);
 }
 
+/* Label Styling */
 label {
     color: #ccc;
-  
 }
 
-input,select{
+/* Input and Select Elements */
+input,
+select {
     background: rgba(64, 66, 98, 0.4);
     border: 1px solid rgba(89, 92, 152, .2);
     padding: 8px 10px;
@@ -98,14 +106,37 @@ input,select{
     margin: 5px 0;
     margin-bottom: 15px;
 }
-.delivery-time, #discount-info{
+
+option {
+    background-color: #4f4f7b;
+}
+
+option:hover {
+    background-color: #7474ac;
+}
+
+/* Delivery Time & Discount Info */
+.delivery-time,
+#facebook-discount-info,
+#tiktok-discount-info,
+#instagram-discount-info,
+#youtube-discount-info,
+#twitter-discount-info,
+#telegram-discount-info {
     color: #ccc;
     display: flex;
     gap: 15px;
     margin-bottom: 10px;
 }
 
-.submit-btn, #confirm-order{
+/* Submit and Confirm Buttons */
+.submit-btn,
+#facebook-confirm-order,
+#youtube-confirm-order,
+#twitter-confirm-order,
+#tiktok-confirm-order,
+#instagram-confirm-order,
+#telegram-confirm-order {
     padding: 10px 50px;
     border: none;
     color: #fff;
@@ -115,39 +146,54 @@ input,select{
     font-size: 15px;
     margin-top: 20px;
     width: 100%;
-
 }
 
+/* Flexbox Container */
 
-#order-summary-modal{
-    width: 30%;
-    height: 100%;
+#facebook-order-summary-modal,
+#telegram-order-summary-modal,
+#youtube-order-summary-modal,
+#tiktok-order-summary-modal,
+#instagram-order-summary-modal,
+#twitter-order-summary-modal {
     margin-top: 5rem;
-    /* border-radius: 10px; */
-    padding: 0 30px;
-    border-left: 1px solid  rgba(146, 150, 236, 0.2);
+    background-color: rgba(64, 66, 98, 0.4);
+    padding: 20px;
+    height: 30%;
+    width: 30%;
+    padding: 20px 15px;
+    border-radius: 10px;
 }
 
-.flex{
-   display: flex;
-   flex-direction: column;
-   gap: 15px;
-   color: #ccc;
-}
-.flex a{
+.flex {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     color: #ccc;
 }
-#order-summary-modal h3{
+
+.flex a {
+    color: #ccc;
+}
+
+#facebook-order-summary-modal h3,
+#telegram-order-summary-modal h3,
+#youtube-order-summary-modal h3,
+#tiktok-order-summary-modal h3,
+#instagram-order-summary-modal h3,
+#twitter-order-summary-modal h3 {
     margin-bottom: 15px;
     font-weight: lighter;
     font-size: 20px;
 }
 
-
-
-
-/* Initial hidden state for the loading spinner */
-#loading-spinner {
+/* Loading Spinner */
+#facebook-loading-spinner,
+#telegram-loading-spinner,
+#instagram-loading-spinner,
+#tiktok-loading-spinner,
+#twitter-loading-spinner,
+#youtube-loading-spinner {
     display: none;
     justify-content: center;
     align-items: center;
@@ -157,45 +203,42 @@ input,select{
     transform: translate(-50%, -50%);
     z-index: 1000;
 }
-/* Spinner appearance with a fade-in effect */
+
 #loading-spinner.active {
     display: flex;
     animation: fadeIn 0.5s ease-in-out forwards;
 }
-/* The CSS-based spinner */
+
 .spinner {
     width: 40px;
     height: 40px;
-    border: 6px solid #b6a3ff   #7474a6;
-    border-top: 6px solid #7474ac; 
+    border: 6px solid #b6a3ff;
+    border-top: 6px solid #7474ac;
     border-radius: 50%;
     animation: spin 1s linear infinite;
 }
-/* Keyframes for fade-in */
+
+/* Keyframes for Animations */
 @keyframes fadeIn {
     0% {
         opacity: 0;
     }
+
     100% {
         opacity: 1;
     }
 }
-/* Keyframes for the spinning effect */
+
 @keyframes spin {
     0% {
         transform: rotate(0deg);
     }
+
     100% {
         transform: rotate(360deg);
     }
 }
-option{
-    background-color: #4f4f7b;
-    border-left: 1px solid  rgba(146, 150, 236, 0.2);
-}
-option:hover{
-    background-color: #7474ac;
-}
+
 
 
 
@@ -215,37 +258,41 @@ option:hover{
         width: 100%;
     }
 
-    .summary{
+    .summary {
         display: flex;
         flex-direction: column;
         gap: 0;
         border: 1px solid rgba(89, 92, 152, .2);
     }
+
     .toggle-content {
         width: 100%;
-    }    
-    #order-summary-modal{
+    }
+
+    #facebook-order-summary-modal,
+    #telegram-order-summary-modal,
+    #youtube-order-summary-modal,
+    #tiktok-order-summary-modal,
+    #instagram-order-summary-modal,
+    #twitter-order-summary-modal {
         width: 100%;
         height: 50%;
         margin-top: 5rem;
         padding: 20px 10px;
         border-left: none;
-        border-top: 1px solid  rgba(146, 150, 236, 0.2);
+        border-top: 1px solid rgba(146, 150, 236, 0.2);
         margin: 0;
+        margin-bottom: 1rem;
     }
-    .flex{
-       display: flex;
-       flex-direction: column;
-       gap: 15px;
-       color: #ccc;
-    }
-    .flex a{
+
+    .flex {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
         color: #ccc;
     }
-    #order-summary-modal h3{
-        margin-bottom: 15px;
-        font-weight: lighter;
-        font-size: 20px;
+
+    .flex a {
+        color: #ccc;
     }
-    
 }

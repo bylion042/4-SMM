@@ -83,3 +83,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
+
+
+
+// SWIPPER IN SMALL SCREEN IN OFFER 
